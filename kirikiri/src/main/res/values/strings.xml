@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">OLC</string>
+    <string name="app_name">SPARC</string>
     <string name="title_activity_main">HOME</string>
-    <string name="title_activity_member_list">원우수첩</string>
+    <string name="title_activity_member_list">동문수첩</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
