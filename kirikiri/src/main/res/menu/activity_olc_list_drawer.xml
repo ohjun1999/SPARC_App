@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:id="@+id/olcGroup"
+        android:checkableBehavior="single"
+        android:enabled="true"
+        android:visible="true">
+        <item
+            android:id="@+id/olc"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="OLC란? " />
+        <item
+            android:id="@+id/olcChart"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="조직도" />
+        <item
+            android:id="@+id/olcHistory"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="OLC 연혁" />
+        <item
+            android:id="@+id/olcLaw"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="회칙" />
+        <item
+            android:id="@+id/olcOffice"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="OLC 사무국 안내" />
+    </group>
+</menu>

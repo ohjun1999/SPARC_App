@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/gruNumberGroup"
+        android:checkableBehavior="single"
+        android:enabled="true">
+        <item
+            android:id="@+id/all_member"
+            android:checked="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="전체" ></item>
+        <item
+            android:id="@+id/first_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="1기" />
+        <item
+            android:id="@+id/second_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="2기" />
+        <item
+            android:id="@+id/third_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="3기" />
+        <item
+            android:id="@+id/fourth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="4기" />
+        <item
+            android:id="@+id/fifth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="5기" />
+        <item
+            android:id="@+id/sixth_member"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="6기" />
+        <item
+            android:id="@+id/seventh_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="7기" />
+        <item
+            android:id="@+id/eighth_member"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="8기" />
+        <item
+            android:id="@+id/ninth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="9기" />
+        <item
+            android:id="@+id/tenth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="10기" />
+        <item
+            android:id="@+id/eleventh_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="11기" />
+        <item
+            android:id="@+id/twelfth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="12기" />
+        <item
+            android:id="@+id/thirteenth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="13기" />
+        <item
+            android:id="@+id/fourteenth_member"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="14기" />
+        <item
+            android:id="@+id/fifteenth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="15기" />
+        <item
+            android:id="@+id/sixteenth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="16기" />
+        <item
+            android:id="@+id/seventeenth_member"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="17기" />
+        <item
+            android:id="@+id/eighteenth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="18기" />
+        <item
+            android:id="@+id/nineteenth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="19기" />
+        <item
+            android:id="@+id/twentieth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="20기" />
+        <item
+            android:id="@+id/twentiethFirst_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="21기" />
+        <item
+            android:id="@+id/professor_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="교수진" />
+        <group />
+    </group>
+    <group
+        android:id="@+id/busGroup"
+        android:checkableBehavior="single"
+        android:enabled="true">
+        <item
+            android:id="@+id/enterprise"
+            android:icon="@drawable/enterprise"
+            android:title="기업" />
+        <item
+            android:id="@+id/brodcast"
+            android:icon="@drawable/broadcast"
+            android:title="방송 언론" />
+        <item
+            android:id="@+id/promote"
+            android:icon="@drawable/promote"
+            android:title="홍보" />
+        <item
+            android:id="@+id/law"
+            android:icon="@drawable/law"
+            android:title="법조" />
+        <item
+            android:id="@+id/goverment"
+            android:icon="@drawable/government"
+            android:title="공기업 관공서" />
+        <item
+            android:id="@+id/financial"
+            android:icon="@drawable/financial"
+            android:title="금융" />
+        <item
+            android:id="@+id/school"
+            android:icon="@drawable/school"
+            android:title="교육" />
+        <item
+            android:id="@+id/account"
+            android:icon="@drawable/account"
+            android:title="행정 회계" />
+        <item
+            android:id="@+id/hospital"
+            android:icon="@drawable/hospital"
+            android:title="의료" />
+        <item
+            android:id="@+id/ngo"
+            android:icon="@drawable/ngo"
+            android:title="단체" />
+        <item
+            android:id="@+id/etc"
+            android:icon="@drawable/etc"
+            android:title="기타" />
+    </group>
+</menu>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.loysc.zzangco.kirikiri_snu">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.DIAL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/launching_icon_olc"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name="com.loysc.zzangco.kirikiri_snu.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.MemberListActivity"
+            android:label="@string/title_activity_member_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.DetailInfoActivity"
+            android:label="@string/title_activity_detail_info"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.CallPhoneActivity"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.BoardActivity"
+            android:label="@string/title_activity_board"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.BoardDetilActivity"
+            android:label="@string/title_activity_board_detil"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.ScheduleActivity"
+            android:label="@string/title_activity_schedule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.ScheduleDetailActivity"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.OlcActivity"
+            android:label="@string/title_activity_olc"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.OlpActivity"
+            android:label="@string/title_activity_olp"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.loysc.zzangco.kirikiri_snu.activity.OlcManualActivity"
+            android:label="@string/title_activity_olc_manual"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.loysc.zzangco.kirikiri_snu.activity.PopupActivity"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+            />
+    </application>
+
+</manifest>
