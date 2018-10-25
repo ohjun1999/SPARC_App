@@ -10,22 +10,18 @@
         <item
             android:id="@+id/olc"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="OLC란? " />
-        <item
-            android:id="@+id/olcChart"
-            android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="조직도" />
-        <item
-            android:id="@+id/olcHistory"
-            android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="OLC 연혁" />
+            android:title="SPARC란? " />
         <item
             android:id="@+id/olcLaw"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="회칙" />
         <item
-            android:id="@+id/olcOffice"
+            android:id="@+id/olcChart"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="OLC 사무국 안내" />
+            android:title="조직도" />
+        <item
+            android:id="@+id/olcStaff"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="임원진 소개" />
     </group>
 </menu>

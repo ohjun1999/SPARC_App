@@ -22,7 +22,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TableLayout
                     android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="33dp"
-                            android:text="OLC란?"
+                            android:text="동창회 소개"
                             android:textColor="#f93f29"
                             android:textSize="17sp"
                             android:textStyle="bold" />
@@ -59,8 +60,8 @@
                             android:id="@+id/textView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
                             android:layout_marginTop="26dp"
+                            android:layout_marginRight="20dp"
                             android:layout_weight="1"
                             android:lineSpacingExtra="22sp"
                             android:paddingLeft="12dp"
@@ -97,14 +98,14 @@
                             android:id="@+id/textView5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="45dp"
                             android:layout_marginTop="40dp"
+                            android:layout_marginBottom="45dp"
                             android:background="#F2F2F2"
                             android:lineSpacingExtra="18sp"
-                            android:paddingBottom="25dp"
                             android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
                             android:paddingTop="25dp"
+                            android:paddingRight="12dp"
+                            android:paddingBottom="25dp"
                             android:text="@string/olc_intro3"
                             android:textColor="#f93f29"
                             android:textSize="13sp"
@@ -163,20 +164,100 @@
 
 
                     <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:layout_marginBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:background="#353535"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="회장"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:text="박준영(29)"
+                            android:textAlignment="center"
+                            android:textColor="#353535"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="군장에너지㈜"
+                            android:textColor="#a0a0a0"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:background="#353535"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="감사"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="3dp"
+                            android:text="이홍재(7기)"
+                            android:textAlignment="center"
+                            android:textColor="#353535"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingBottom="3dp"
+                            android:text="법무법인 지평"
+                            android:textColor="#a0a0a0"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+                    </TableRow>
+
+                    <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView52"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
                             android:text="명예회장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
@@ -188,7 +269,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="신동수\n홍성열\n박기흥\n김병희\n장재진\n구자관"
+                            android:text="서영출\n장재진\n홍기남\n김권진\n하상철\n정순백\n박준희\n오정기\n김대인"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -200,7 +281,7 @@
                             android:layout_weight="1"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="㈜평산\n㈜마리오아울렛\n한유그룹\n㈜희성앤H\n㈜오리엔트바이오\n㈜삼구아이앤씨"
+                            android:text="㈜서은상사 회장\n㈜오리엔트바이오 회장\n진보공업㈜ 대표이사·회장\n성신화학㈜ 대표이사\n㈜파카텍스 대표이사\n위너콤㈜ 대표이사\n아이넷방송 대표이사·회장\n현대하이텍㈜ 대표이사\n㈜대흥소프트밀 대표이사"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
@@ -208,38 +289,41 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="26dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
-                            android:id="@+id/textView7"
+                            android:id="@+id/textView55"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="7대회장"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="고문"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
 
                         <TextView
-                            android:id="@+id/textView8"
+                            android:id="@+id/textView555"
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
-                            android:text="어 진(12기)"
+                            android:lineSpacingExtra="1sp"
+                            android:paddingBottom="3dp"
+                            android:text="배두식(12)\n권선주(22)\n황소용(24)\n국중하(26)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
 
                         <TextView
-                            android:id="@+id/textView9"
-                            android:layout_width="match_parent"
+                            android:id="@+id/textView56"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="안국약국㈜"
+                            android:paddingBottom="3dp"
+                            android:text="㈜삼성정밀\nIBK 기업은행\n디에이치테크㈜\n우신산업㈜"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
@@ -247,19 +331,60 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/textView28"
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:background="#353535"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="자문위원"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="3dp"
+                            android:text="박성환(8)\n전계조(10)\n조현욱(12)\n이수원(15)\n정운기(15)\n황용규(15)\n노부호(16)\n장옥님(17)\n김준옥(18)\n신수경(24)\n박경춘(26)\n진영우(26)\n김희철(29)\n백성식(29)\n유명우(29)"
+                            android:textAlignment="center"
+                            android:textColor="#353535"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingBottom="3dp"
+                            android:text="호곡종합건설㈜\n지제이산업\n더조은 종합법률사무소\n㈜현대수리조트\n관세법인 에이원\n대한예수교 장로회 선진교회\n한국배출권거래협회\nEBS\n베스트종합관리㈜\n세계한민족여성재단\n법무법인 서평\n㈜애드본\n㈜한국모터트레이딩(YAMAHA)\n금성PM㈜\n㈜유명골프클럽"
+                            android:textColor="#a0a0a0"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView10"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="수석 부회장"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="상임 수석\n부회장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -270,7 +395,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="신제윤(5기)\n성대영(12기)\n이세정(1기)"
+                            android:text="차문현(23)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -282,7 +407,7 @@
                             android:layout_weight="1"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="청소년금융교육협의회\n위더스제약㈜\n한유에너지"
+                            android:text="하나자산운용"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
 
@@ -292,8 +417,8 @@
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="7dp"
                         android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
                         android:visibility="gone">
 
                         <TextView
@@ -301,10 +426,10 @@
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
                             android:text="자문위원"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
@@ -333,64 +458,23 @@
                             android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
-
-                        <TextView
-                            android:id="@+id/textView55"
-                            android:layout_width="97dp"
-                            android:layout_height="wrap_content"
-                            android:background="#353535"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="4dp"
-                            android:text="고문"
-                            android:textAlignment="center"
-                            android:textColor="#ffffff"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView555"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingExtra="1sp"
-                            android:paddingBottom="3dp"
-                            android:text="이장규 교수\n남성일 교수\n진 념 교수"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView56"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="3dp"
-                            android:text=""
-                            android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
-                    </TableRow>
 
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView13"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="부회장\n(기수회장)"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="부회장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -401,7 +485,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="주홍(1기)\n최병원(2기)\n안영석(3기)\n고원석(4기)\n양병만(5기)\n장덕생(6기)\n홍석범(7기)\n윤석구(8기)\n송문성(9기)\n강성익(10기)\n이익수(11기)\n김효준(12기)\n서수민(13기)\n이덕수(14기)\n김명일(15기)\n손영득(16기)\n정찬모(17기)\n박필준(18기)\n배성윤(19기)\n박설웅(20기)\n홍재식(21기)"
+                            android:text="조용권(1)\n안상원(5)\n임행균(6)\n이걸구(7)\n이환무(8)\n이의시(9)\n강정용(11)\n진종한(12)\n고인홍(13)\n김광수(14)\n정운기(15)\n전영길(17)\n김준옥(18)\n김종순(19)\n정순태(20)\n권황섭(21)\n이대복(22)\n안철호(23)\n장덕수(24)\n곽종훈(25)\n차화준(26)\n이규산(27)\n김일권(28)\n유명우(29)\n곽영진(30)\n손준호(31)\n송정섭(32)\n김희철(33)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -413,7 +497,8 @@
                             android:layout_weight="1"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="(주)상암커뮤니케이션즈\n前 스틱인베스트먼트\n㈜오에이치코리아\n법무법인 광장\n㈜휴비즈넷\n한국화랑협회\n김앤장 법률사무소\n㈜시스컴\n㈜준서예건\n㈜뷰애드\n데일리안\n㈜하나원마켓\n㈜DKC\n㈜타임즈코어\n㈜경안전선\n한국고용정보\n㈜투비즈테크놀로지\n㈜화일약품\n㈜현대글로벌모터스\nSD생명공학\n코아비스"
+                            android:text="선올기연㈜  선올위플러스㈜\n에코세이브㈜\n㈜이산\n㈜신원 CORP\n㈜인코비피에스\n뉴텍 RSI (주)\n석성기업㈜\n진종한 법률사무소\n㈜우강테크\n㈜지산아이엔씨\n관세법인 에이원\n선우실업\n베스트종합관리㈜\n중원산업㈜\n아크로텍\n(사)한국IoT산업협회\n김앤장법률사무소\n㈜엘티에이\n디에스자산운용\n서울어린이병원\n㈜해동에스디\n㈜대국산기\n한국뇌발달연구소\n㈜유명골프클럽\n㈜애니원\n서울고등검찰청\n아시안타이거즈 코리아\n㈜한국모터트레이딩(YAMAHA)
+"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
 
@@ -423,18 +508,18 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView16"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
                             android:text="사무총장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
@@ -445,7 +530,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="박연대(12기)"
+                            android:text="김한준(29)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -456,7 +541,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text="㈜경도애비뉴"
+                            android:text="㈜비전홀딩스"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
@@ -465,18 +550,18 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView19"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
                             android:text="사무차장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
@@ -487,7 +572,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="강현우(17기)"
+                            android:text=""
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -498,90 +583,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text="신한은행"
-                            android:textColor="#a0a0a0"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
-
-                        <TextView
-                            android:id="@+id/tv91"
-                            android:layout_width="97dp"
-                            android:layout_height="wrap_content"
-                            android:background="#353535"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="4dp"
-                            android:text="사무국"
-                            android:textAlignment="center"
-                            android:textColor="#ffffff"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/tv92"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="3dp"
-                            android:text="이지혜"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/tv93"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="3dp"
                             android:text=""
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
-
-                        <TextView
-                            android:id="@+id/textView22"
-                            android:layout_width="97dp"
-                            android:layout_height="wrap_content"
-                            android:background="#353535"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="4dp"
-                            android:text="감사"
-                            android:textAlignment="center"
-                            android:textColor="#ffffff"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView23"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="3dp"
-                            android:text="이홍재(7기)"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView24"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="3dp"
-                            android:text="법무법인 지평"
-                            android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
@@ -589,145 +592,19 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
-
-                        <TextView
-                            android:id="@+id/textView25"
-                            android:layout_width="97dp"
-                            android:layout_height="wrap_content"
-                            android:background="#353535"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="4dp"
-                            android:text="운영이사"
-                            android:textAlignment="center"
-                            android:textColor="#ffffff"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView26"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingExtra="1sp"
-                            android:paddingBottom="3dp"
-                            android:text="양병만(5기)\n이민성(9기)\n김홍익(8기)\n유병인(3기)"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView27"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:lineSpacingExtra="1sp"
-                            android:paddingBottom="3dp"
-                            android:text="(주)휴비즈넷\n(주)성우애드컴\n㈜오리엔트바이오\nLOCKTON"
-                            android:textColor="#a0a0a0"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
-
-                        <TextView
-                            android:id="@+id/textView43"
-                            android:layout_width="97dp"
-                            android:layout_height="wrap_content"
-                            android:background="#353535"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="4dp"
-                            android:text="운영분과\n(기수 간사장)"
-                            android:textAlignment="center"
-                            android:textColor="#ffffff"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView44"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingExtra="1sp"
-                            android:paddingBottom="3dp"
-                            android:text="이옥원(1기)\n김격수(2기)\n김기린(3기)\n남택원(4기)\n박원범((5기)\n송민규(6기)\n최성호(7기)\n김홍익(8기)\n민병오(9기)\n최선호(10기)\n강주엽(11기)\n노경래(12기)\n노상기(13기)\n김경아(14기)\n김종술(15기)\n양윤석(16기)\n이상현(17기)\n성환두(18기)\n장준철(19기)\n유재중(20기)\n이윤환(21기)"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView45"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="3dp"
-                            android:text=""
-                            android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
-
-                        <TextView
-                            android:id="@+id/textView28"
-                            android:layout_width="97dp"
-                            android:layout_height="wrap_content"
-                            android:background="#353535"
-                            android:paddingBottom="4dp"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="4dp"
-                            android:text="언론편집분과\n위원장"
-                            android:textAlignment="center"
-                            android:textColor="#ffffff"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView29"
-                            android:layout_width="90dp"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="3dp"
-                            android:text="이세정(1기)"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="@dimen/olc_chart_tx_size" />
-
-                        <TextView
-                            android:id="@+id/textView30"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingBottom="3dp"
-                            android:text=""
-                            android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView31"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="언론편집분과\n부위원장"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="기획국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -737,7 +614,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="허원순(12기)"
+                            android:text="김희섭(28)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -748,27 +625,27 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text=""
+                            android:text="아이디에이그룹"
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView34"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="언론편집분과\n편집장"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="사업국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -778,7 +655,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="안미현(10기)"
+                            android:text="이규산(27)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -789,27 +666,27 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text=""
+                            android:text="㈜대국산기"
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView37"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="언론편집분과\n위원"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="재무국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -820,7 +697,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="김광기(3기)\n이용문(11기)\n김석(12기)"
+                            android:text="이대정(28)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -831,27 +708,27 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text=""
+                            android:text="스탠다드차타드은행"
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView40"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="언론편집분과\n고문"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="대외국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -862,7 +739,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="이종재(1기)\n정세용(2기)\n이의춘(3기)\n신동욱(5기)\n정석구(6기)"
+                            android:text="임태혁(25)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -882,19 +759,19 @@
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView46"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="산악회\n회장"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="협력국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -904,7 +781,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="윤석구(8기)"
+                            android:text="김용관(27)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -915,27 +792,27 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text=""
+                            android:text="설화칠기"
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/textView49"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="씨네오페라클럽\n회장"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="홍보국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -945,7 +822,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="윤석구(8기)"
+                            android:text="윤석구(10)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -956,27 +833,27 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text=""
+                            android:text="㈜로이에스씨"
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
                     <TableRow
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:layout_marginTop="7dp">
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
 
                         <TextView
                             android:id="@+id/tv95"
                             android:layout_width="97dp"
                             android:layout_height="wrap_content"
                             android:background="#353535"
-                            android:paddingBottom="4dp"
                             android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
                             android:paddingTop="4dp"
-                            android:text="골프회\n간사"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="문회예술국장"
                             android:textAlignment="center"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -986,7 +863,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="강주엽(11기)"
+                            android:text="장옥님(17)"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -997,11 +874,135 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="3dp"
-                            android:text=""
+                            android:text="EBS"
                             android:textColor="#a0a0a0"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
 
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/tv210"
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:background="#353535"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="상조국장"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/tv211"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="3dp"
+                            android:text="김미선(29)"
+                            android:textAlignment="center"
+                            android:textColor="#353535"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/tv212"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingBottom="3dp"
+                            android:text="에이디칩스"
+                            android:textColor="#a0a0a0"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/tv213"
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:background="#353535"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="여성국장"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/tv214"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="3dp"
+                            android:text="서희원(29)"
+                            android:textAlignment="center"
+                            android:textColor="#353535"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/tv215"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingBottom="3dp"
+                            android:text="미래에셋생명"
+                            android:textColor="#a0a0a0"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="97dp"
+                            android:layout_height="wrap_content"
+                            android:background="#353535"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="4dp"
+                            android:paddingRight="8dp"
+                            android:paddingBottom="4dp"
+                            android:text="이사"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="1sp"
+                            android:paddingBottom="3dp"
+                            android:text="전동훈(1)\n이청산(5)\n이원철(7)\n정운호(9)\n윤석구(10)\n유성호(11)\n이양규(12)\n이한수(13)\n김창홍(14)\n허근원(15)\n박진호(16)\n나도남(17)\n박찬욱(18)\n임세현(19)\n박근수(20)\n이우석(20)\n김태환(22)\n민정기(23)\n임덕순(24)\n정현수(24)\n김득수(25)\n최영록(25)\n최복규(26)\n김정현(27)\n오종철(28)\n김한준(29)\n장영임(30)\n허진영(31)\n민수영(32)\n최재범(32)\n최문정(33)"
+                            android:textAlignment="center"
+                            android:textColor="#353535"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="1sp"
+                            android:paddingBottom="3dp"
+                            android:text="스파클㈜\n㈜원우정밀\n대한결핵협회\nSPS 주차관제㈜\n㈜로이에스씨\n한국산업기술시험원\n㈜메인텍\nATLAN\n㈜디포그\n한국주택금융공사\n플랜국제특허법률사무소\n서울시청\n관세법인 에이원\n극동무역\n㈜기가텍 \n법무법인 예서원\n㈜신화테크\n삼홍사\n변호사 정현수 법률사무소\n수협은행\n㈜나누리\n법무법인 태평양\n인천가정법원\n성우엔지니어링\n㈜재미웍스\nIBK기업은행\n㈜유한로지스틱스\n김앤장법률사무소\n삼정회계법인\nING생명㈜\n유노빅스 이엔씨㈜"
+                            android:textColor="#a0a0a0"
+                            android:textSize="@dimen/olc_chart_tx_size" />
+                    </TableRow>
                 </TableLayout>
             </LinearLayout>
         </ScrollView>
@@ -1756,7 +1757,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -1783,7 +1784,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="35dp"
-                            android:text="[회칙] 사단법인 오피니언리더스클럽 "
+                            android:text="서울대학교 자연과학대학"
                             android:textAlignment="center"
                             android:textColor="#f93f29"
                             android:textSize="17sp"
@@ -1802,7 +1803,7 @@
                             android:id="@+id/textView104"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="정 관"
+                            android:text="과학기술혁신 최고전략과정(SPARC) 동창회 회칙"
                             android:textAlignment="center"
                             android:textColor="#f93f29"
                             android:textSize="17sp"
@@ -1903,74 +1904,10 @@
                     </TableRow>
 
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView110"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 3조 (사업)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView111"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law3"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
 
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/textView112"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 4조 (사무소)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
 
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView113"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law4"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -2004,7 +1941,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 5조 (회원의 구성)"
+                            android:text="제 3조 (회원의 구성)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2038,7 +1975,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 6조 (회원의 가입)"
+                            android:text="제 4조 (회원의 권리와 의무)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2072,7 +2009,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 7조 (회원의 가입비 및 회비 등)"
+                            android:text="제 5조 (사무소)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2097,107 +2034,7 @@
 
                     </TableRow>
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/textView121"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 8조 (회원 권리의무)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView122"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law8"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView123"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 9조 (회원자격의 소멸)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView124"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law9"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView125"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 10조 (제명)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView126"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law10"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -2209,7 +2046,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 3 장 회원총회"
+                            android:text="제 3 장 임원"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="14sp"
@@ -2231,7 +2068,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 11조 (회원총회)"
+                            android:text="제 6조 (임원)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2265,7 +2102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 12조 (동의사항)"
+                            android:text="제 7조 (임원선출 및 임기)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2299,7 +2136,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 13조 (성원과 의결)"
+                            android:text="제 8조 (임원의 의무)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2334,7 +2171,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 4 장 임원"
+                            android:text="제 4 장 회 의"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="14sp"
@@ -2356,7 +2193,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 14조 (임원)"
+                            android:text="제 9조 (총회)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2381,110 +2218,6 @@
                             android:textSize="14sp" />
 
                     </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView136"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 15조 (회장)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView137"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law15"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView138"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 16조 (임원 선임 및 직무)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView139"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law16"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView140"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 17조 (임기 및 보선)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView141"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law17"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="29dp"
@@ -2495,7 +2228,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 5 장 이사회, 분과위원회"
+                            android:text="제 5 장 재 무"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="14sp"
@@ -2517,7 +2250,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 18조 (이사회의 구성 및 의무)"
+                            android:text="제 10조 (재정)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2551,7 +2284,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 19조 (소집)"
+                            android:text="제 11조 (기금의 지출 및 관리)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2575,144 +2308,6 @@
                             android:textSize="14sp" />
 
                     </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView147"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 20조 (이사회의 결의)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView148"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law20"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView149"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 21조 (이사회의 결의방법)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView150"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law21"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView151"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 22조 (분과위원회)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView152"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law22"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView153"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 23조 (의사록)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView154"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law23"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="29dp"
@@ -2723,7 +2318,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 6 장 고문 및 자문위원회"
+                            android:text="제 6 장 사 업"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="14sp"
@@ -2745,7 +2340,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 24조 (구성)"
+                            android:text="제 12조"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2781,7 +2376,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 7 장 사무국 조직 및 운영"
+                            android:text="제 7 장 회원의 가입 및 탈퇴"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="14sp"
@@ -2803,7 +2398,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 25조 (사무국의 설치)"
+                            android:text="제 13조 (회원가입)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2837,7 +2432,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 26조 (사무총장의 선임)"
+                            android:text="제 14조 (제명 및 탈퇴)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2864,41 +2459,6 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView163"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 27조 (사무국의 구성)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView164"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law27"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
                         android:layout_height="29dp"
                         android:gravity="center_horizontal">
 
@@ -2907,7 +2467,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 8 장 재산과 회계"
+                            android:text="제 8 장 기 타"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="14sp"
@@ -2929,7 +2489,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 28조 (재산)"
+                            android:text="제 15조 (회기)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2963,7 +2523,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="22dp"
-                            android:text="제 29조 (경비)"
+                            android:text="제 16조 (부칙)"
                             android:textColor="#353535"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -2987,269 +2547,6 @@
                             android:textSize="14sp" />
 
                     </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView170"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 30조 (회계연도)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView171"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law30"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView172"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 31조 (재산의 관리)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView173"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law31"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView174"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 32조 (해산시 잔여재산의 처리해산시 잔여재산의 처리)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView175"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law32"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="29dp"
-                        android:gravity="center_horizontal">
-
-                        <TextView
-                            android:id="@+id/textView176"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="부칙"
-                            android:textAlignment="center"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="1dp"
-                        android:background="#7b7b7b" />
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView177"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 1조 (시행일)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView178"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law_sub_1"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView179"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 2조 (최초의 사업년도)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView180"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law_sub_2"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView181"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 3조 (최초 임원의 임기))"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView182"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law_sub_3"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView183"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="22dp"
-                            android:text="제 4조 (세부사항)"
-                            android:textColor="#353535"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/textView184"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="12dp"
-                            android:paddingRight="12dp"
-                            android:text="@string/olc_law_sub_4"
-                            android:textColor="#353535"
-                            android:textSize="14sp" />
-
-                    </TableRow>
-
                 </TableLayout>
             </LinearLayout>
         </ScrollView>
