@@ -246,9 +246,45 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.twentieth_member) {
             addListItem(searchWord,"20",favorite,business);
             toolbar.setTitle("20기");
-        } else if (id == R.id.twentiethFirst_member) {
+        } else if (id == R.id.twentyFirst_member) {
             addListItem(searchWord,"21",favorite,business);
             toolbar.setTitle("21기");
+        } else if (id == R.id.twentySecond_member) {
+            addListItem(searchWord,"22",favorite,business);
+            toolbar.setTitle("22기");
+        } else if (id == R.id.twentyThird_member) {
+            addListItem(searchWord,"23",favorite,business);
+            toolbar.setTitle("23기");
+        } else if (id == R.id.twentyFourth_member) {
+            addListItem(searchWord,"24",favorite,business);
+            toolbar.setTitle("24기");
+        } else if (id == R.id.twentyFifth_member) {
+            addListItem(searchWord,"25",favorite,business);
+            toolbar.setTitle("25기");
+        } else if (id == R.id.twentySixth_member) {
+            addListItem(searchWord,"26",favorite,business);
+            toolbar.setTitle("26기");
+        } else if (id == R.id.twentySeventh_member) {
+            addListItem(searchWord,"27",favorite,business);
+            toolbar.setTitle("27기");
+        } else if (id == R.id.twentyEighth_member) {
+            addListItem(searchWord,"28",favorite,business);
+            toolbar.setTitle("28기");
+        } else if (id == R.id.twentyNinth_member) {
+            addListItem(searchWord,"29",favorite,business);
+            toolbar.setTitle("29기");
+        } else if (id == R.id.thirtieth_member) {
+            addListItem(searchWord,"30",favorite,business);
+            toolbar.setTitle("30기");
+        } else if (id == R.id.thirtyFirst_member) {
+            addListItem(searchWord,"31",favorite,business);
+            toolbar.setTitle("31기");
+        } else if (id == R.id.thirtySecond_member) {
+            addListItem(searchWord,"32",favorite,business);
+            toolbar.setTitle("32기");
+        } else if (id == R.id.thirtyThird_member) {
+            addListItem(searchWord,"33",favorite,business);
+            toolbar.setTitle("33기");
         } else if (id == R.id.professor_member) {
             addListItem(searchWord,"99",favorite,business);
             toolbar.setTitle("교수진");
@@ -256,48 +292,132 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
             business = null;
             addListItem(searchWord,"00",favorite,business);
             toolbar.setTitle("전체");
-        }else if(id == R.id.enterprise){
+        }else if(id == R.id.it){
             business = "1";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("기업");
-        }else if(id == R.id.brodcast){
+            toolbar.setTitle("IT 인터넷");
+        }else if(id == R.id.iron){
             business = "2";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("방송");
-        }else if(id == R.id.promote){
+            toolbar.setTitle("금속 기계");
+        }else if(id == R.id.eletron){
             business = "3";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("홍보");
-        }else if(id == R.id.law){
+            toolbar.setTitle("전기 정보 통신");
+        }else if(id == R.id.bio){
             business = "4";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("법조");
-        }else if(id == R.id.goverment){
+            toolbar.setTitle("바이오 화학");
+        }else if(id == R.id.energe){
             business = "5";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("공기업 관공서");
-        }else if(id == R.id.financial){
+            toolbar.setTitle("에너지 환경");
+        }else if(id == R.id.construction){
             business = "6";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("금융");
-        }else if(id == R.id.school){
+            toolbar.setTitle("토목 건설 부동산");
+        }else if(id == R.id.manufacturing){
             business = "7";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("교육");
-        }else if(id == R.id.account){
+            toolbar.setTitle("제품 제조");
+        }else if(id == R.id.pharmaceutical){
             business = "8";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("행정 회계");
-        }else if(id == R.id.hospital){
+            toolbar.setTitle("제약 의료");
+        }else if(id == R.id.apparel){
             business = "9";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("의료");
-        }else if(id == R.id.ngo){
+            toolbar.setTitle("패션 디자인");
+        }else if(id == R.id.food){
             business = "10";
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("단체");
-        }else if(id == R.id.etc){
+            toolbar.setTitle("식품 음료");
+        }else if(id == R.id.agriculture){
             business = "11";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("농축산");
+        }else if(id == R.id.beauty){
+            business = "12";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("건강 미용");
+        }else if(id == R.id.distribution){
+            business = "13";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("물류 유통 무역");
+        }else if(id == R.id.marketing){
+            business = "14";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("마케팅 홍보 광고");
+        }else if(id == R.id.broadcasting){
+            business = "15";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("방송 언론");
+        }else if(id == R.id.culture){
+            business = "16";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("문화 예술 출판");
+        }else if(id == R.id.offices){
+            business = "17";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("관공서 공기업");
+        }else if(id == R.id.law){
+            business = "18";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("법조 특허");
+        }else if(id == R.id.accounting){
+            business = "19";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("행정 회계 세무");
+        }else if(id == R.id.finance){
+            business = "20";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("금융 투자");
+        }else if(id == R.id.education){
+            business = "21";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("교육 학교");
+        }else if(id == R.id.traffic){
+            business = "22";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("교통 항공");
+        }else if(id == R.id.leisure) {
+            business = "23";
+            addListItem(searchWord, "00", favorite, business);
+            toolbar.setTitle("레져 여행");
+        }else if(id == R.id.group){
+            business = "24";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("단체 재단");
+        }else if(id == R.id.academy){
+            business = "25";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("연구소 학회");
+        }else if(id == R.id.party){
+            business = "26";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("정당");
+        }else if(id == R.id.engineering){
+            business = "27";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("설계 엔지니어링");
+        }else if(id == R.id.equipment){
+            business = "28";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("설비 관리");
+        }else if(id == R.id.research){
+            business = "29";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("리서치 컨설팅");
+        }else if(id == R.id.recruiting){
+            business = "30";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("리쿠르팅 소씽");
+        }else if(id == R.id.printing){
+            business = "31";
+            addListItem(searchWord,"00",favorite,business);
+            toolbar.setTitle("판촉 인쇄");
+        }else if(id == R.id.etc){
+            business = "0";
             addListItem(searchWord,"00",favorite,business);
             toolbar.setTitle("기타");
         }
