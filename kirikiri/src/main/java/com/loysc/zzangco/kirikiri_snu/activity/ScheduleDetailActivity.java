@@ -3,6 +3,7 @@ package com.loysc.zzangco.kirikiri_snu.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.loysc.zzangco.kirikiri_snu.R;
@@ -10,8 +11,10 @@ import com.loysc.zzangco.kirikiri_snu.R;
 import com.loysc.zzangco.kirikiri_snu.common.ScheduleItem;
 
 public class ScheduleDetailActivity extends Activity {
-    private TextView tvTitle,tvAnnDate,tvContent,tvType;
+    private TextView tvTitle,tvAnnDate,tvType;
     private ScheduleItem item;
+
+    private WebView tvContent;
 
     public static final String SCHEDULE_ITEM = "item";
     @Override
@@ -24,11 +27,17 @@ public class ScheduleDetailActivity extends Activity {
 
         tvTitle = (TextView)findViewById(R.id.tvTitle);
         tvAnnDate = (TextView)findViewById(R.id.tvAnnDate);
-        tvContent = (TextView)findViewById(R.id.tvContent);
+        tvContent = (WebView)findViewById(R.id.tvContent);
         tvType = (TextView)findViewById(R.id.tvType);
 
         tvTitle.setText(item.getTitle());
-        tvContent.setText(item.getContent());
+
+        tvContent.getSettings().setJavaScriptEnabled(true);
+        tvContent.setHorizontalScrollBarEnabled(false);
+        tvContent.setVerticalScrollBarEnabled(true);
+        tvContent.setBackgroundColor(0);
+        tvContent.loadData(item.getContent(), "text/html; charset=UTF-8", null);
+        //tvContent.setText(item.getContent());
 
         tvAnnDate.setText(makeYYYYMMDD(item.getAnnDate()));
 

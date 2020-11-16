@@ -1,7 +1,9 @@
 package com.loysc.zzangco.kirikiri_snu.common;
 
-import android.support.v4.view.PagerAdapter;
+
 import android.view.View;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 /**
  * Created by zzangco on 2017-11-22.

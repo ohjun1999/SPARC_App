@@ -1,5 +1,7 @@
 package com.loysc.zzangco.kirikiri_snu.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,25 +9,64 @@ import java.io.Serializable;
  */
 
 public class MemberVo implements Serializable {
+    @SerializedName("id")
     private String id;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("birthday")
     private String birthday;
+
+    @SerializedName("sunmoon")
     private String sunmoon;
+
+    @SerializedName("handphone")
     private String handphone;
+
+    @SerializedName("email")
     private String email;
+
+    @SerializedName("comname")
     private String comname;
+
+    @SerializedName("dept")
     private String dept;
+
+    @SerializedName("position")
     private String position;
+
+    @SerializedName("comphone")
     private String comphone;
+
+    @SerializedName("comaddress")
     private String comaddress;
+
+    @SerializedName("homephone")
     private String homephone;
+
+    @SerializedName("homeaddress")
     private String homeaddress;
+
+    @SerializedName("fax")
     private String fax;
+
+    @SerializedName("business")
     private String business;
+
+    @SerializedName("businame")
     private String businame;
+
+    @SerializedName("grannumber")
     private String grannumber;
+
+    @SerializedName("totalPage")
     private String totalPage;
+
+    @SerializedName("currentPage")
     private String currentPage;
+
+    @SerializedName("searchWord")
     private String searchWord;
 
     public String getId() {

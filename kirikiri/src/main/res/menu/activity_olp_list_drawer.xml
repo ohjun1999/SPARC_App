@@ -7,15 +7,19 @@
         <item
             android:id="@+id/olp"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="OLP란? " />
+            android:title="SPARC는?" />
         <item
             android:id="@+id/olpCur"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="커리큘럼" />
+            android:title="과정운영개요" />
+        <item
+            android:id="@+id/olpRec"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="입학안내" />
         <item
             android:id="@+id/olpOffice"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="OLP 사무국 안내" />
+            android:title=" 행정실 소개" />
 
     </group>
 </menu>

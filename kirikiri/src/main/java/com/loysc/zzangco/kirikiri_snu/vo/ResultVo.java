@@ -1,5 +1,7 @@
 package com.loysc.zzangco.kirikiri_snu.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,7 +9,11 @@ import java.io.Serializable;
  */
 
 public class ResultVo implements Serializable {
+
+    @SerializedName("result")
     private String result;
+
+    @SerializedName("dataType")
     private String dataType;
 
     public String getResult() {

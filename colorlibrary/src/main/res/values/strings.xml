@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MyColor</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_color_list">ColorListActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="search_color">검색어를 입력해 주십시오.</string>
+    <string name="all_color">전체 물감</string>
+    <string name="storage_color">보유한 물감</string>
+    <string name="title_activity_detial_info">DetialInfoActivity</string>
+</resources>

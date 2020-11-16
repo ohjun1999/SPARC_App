@@ -1,27 +1,4 @@
 <resources>
-    <string name="app_name">SPARC</string>
-    <string name="title_activity_main">HOME</string>
-    <string name="title_activity_member_list">동문수첩</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_detail_info">상세보기</string>
-    <string name="search_member">검색어를 입력해 주십시오.</string>
-    <string name="title_activity_board">BoardActivity</string>
-    <string name="title_activity_board_detil">BoardDetilActivity</string>
-    <string name="title_activity_schedule">ScheduleActivity</string>
-
-    <string name="material_calendar_sunday">일</string>
-    <string name="material_calendar_monday">월</string>
-    <string name="material_calendar_tuesday">화</string>
-    <string name="material_calendar_wednesday">수</string>
-    <string name="material_calendar_thursday">목</string>
-    <string name="material_calendar_friday">금</string>
-    <string name="material_calendar_saturday">토</string>
-
-
     <array name="material_calendar_months_array">
         <item>1월</item>
         <item>2월</item>
@@ -36,10 +13,33 @@
         <item>11월</item>
         <item>12월</item>
     </array>
-    <string name="title_activity_olc">OlcActivity</string>
-    <string name="olc_intro"></string>
-    <string name="olc_intro2"></string>
-    <string name="olc_intro3"></string>
+    <string name="app_name">SPARC</string>
+    <string name="title_activity_main">HOME</string>
+
+    <string name="title_activity_member_list">동문수첩</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_detail_info">상세보기</string>
+    <string name="search_member">검색어를 입력해 주십시오.</string>
+    <string name="title_activity_board">BoardActivity</string>
+    <string name="title_activity_board_detil">BoardDetilActivity</string>
+
+    <string name="title_activity_schedule">ScheduleActivity</string>
+    <string name="material_calendar_sunday">일</string>
+    <string name="material_calendar_monday">월</string>
+    <string name="material_calendar_tuesday">화</string>
+    <string name="material_calendar_wednesday">수</string>
+    <string name="material_calendar_thursday">목</string>
+    <string name="material_calendar_friday">금</string>
+
+
+    <string name="material_calendar_saturday">토</string>
+    <string name="title_activity_olc">moilsulogActivity</string>
+    <string name="olc_intro">첨단과학에 대한 바른 이해와 미래지향적인 과학문화 정착을 위해 개설되었습니다.</string>
+    <string name="olc_intro2">과학기술산업융합최고전략과정(SPARC)은 첨단과학에 대한 바른 이해와 미래지향적인 과학문화 정착을 위해 개설되었다.</string>
+    <string name="olc_intro3">본 과정은 우리사회의 지도층 인사들과 함께 과학에 대한 정확한 이해를 바탕으로 미래의 과학기술을 예측하고 대비할 수 있는 비전을 갖추고 우리나라에 필요한 새로운 국가발전모델을 찾고자 한다.또한 기업의 임원, 연구담당 책임자 등에게 신제품 개발을 위한 원천적 과학지식을 습득하고 이해하게 하여 궁극적으로 기술경쟁력을 키우는 교육의 장을 만드는 것을 목적으로 한다.</string>
 
     <string name="olc_law1">(명칭)  본회는 서울대학교 자연과학대학 과학기술혁신 최고전략과정(SPARC)동창회라 칭한다.</string>
     <string name="olc_law2">(목적)  본회는 회원 상호간의 친목을 도모하며, 모교의 발전과 나아가 국가의 과학 및 정책발전에 기여함을 목적으로 한다.</string>
@@ -51,14 +51,11 @@
     <string name="olc_law8">회원은 본회의 제반활동에 자유로이 참가할 수 있으며 소정의 회비를 납부하여야 한다.</string>
     <string name="olc_law9">회원자격은 다음 각 호의 사유로 소멸한다.\n1. 회원이 서면으로 클럽에 탈퇴를 통고할 때\n2. 사망, 파산선고, 해산 또는 합병에 의한 소멸\n3. 제명</string>
     <string name="olc_law10">회원 중 본회의 목적에 위배되거나 회원으로서의 품위를 손상시키는 행동이 있을 경우에는 이사회의 결의에 의하여 제명할 수 있다.</string>
-    <string name="olc_law11">임원은 정회원으로 다음과 같이 구성한다.\n1. 회장 1인\n2. 상임수석부회장 1인\n3. 수석부회장 8명\n4. 부회장 각 기수별 5인 이내\n5. 감사 2인\n6. 사무총장, 사무처장 1인(사무총장 보좌)\n7. 기획, 사업, 재무, 여성, 홍보, 대외, 협력, 상조, 예능 국장등은 회장이 역할에 따라 위촉 임명할 수 있다.\n8. 이사 각 기수별 2인 이내\n9. 명예회장(전임 회장 모두), 고문, 자문위원 약간 명을 둔다.\n10. 상근간사 1인</string>
-    <string name="olc_law12">1. 회장과 상임수석부회장 및 감사는 임원회의에서 선출하며 총회에서 인준을 받아야 하고 그 밖의 임원은 각 기수별 추천을 받아 회장이 위촉한다.\n\n2. 수석부회장은 총 동창회장 전, 후 4기수(총 8기수)의 회장으로 한다.(단, 여성 부회장은 기수에 제한받지 않는다,)\n\n3. 모든 임원의 임기는 2년으로 한다.(단, 본 항의 시행시기는 2018년으로 한다.)\n\n4. 보궐된 임원의 임기는 전임자의 잔여기간으로 한다.\n\n5. 고문 및 자문위원은 회장이 추대하고 명예회장은 전임회장이 된다.\n\n6. 각 기수 회장은→부회장으로, 총무이사는→이사로 당연직 선임한다.\n\n7. 각 국장은 필요에 따라 정기총회 후 신임회장의 필요에 따라 선출한다.</string>
+    <string name="olc_law11">임원은 정회원으로 다음과 같이 구성한다.\n1. 회장 1인\n2. 상임수석부회장 1인\n3. 수석부회장 8명\n4. 부회장 각 기수별 5인 이내\n5. 감사 2인\n6. 사무총장, 사무처장 1인(사무총장 보좌)\n7. 총 동창회의 운용지침에 따라 국장과 부장을 총동창회장이 사무총장과 협의하여 역할에 따라 위촉과 임명할 수 있다.\n8. 이사 각 기수별 2인 이내\n9.총동창회장은 필요에 의하여 자문위원단을 구성하여 운영할 수 있다.(역대 명예회장을 포함하고 총동창회장이 위촉한 자문위원 및 기타인원으로 구성</string>
+    <string name="olc_law12">1. 회장과 상임수석부회장 및 감사는 임원회의에서 선출하며 총회에서 인준을 받아야 하고 그 밖의 임원은 각 기수별 추천을 받아 회장이 위촉한다.\n\n2. 수석부회장은 총 동창회장 전, 후 4기수(총 8기수)의 회장으로 한다.\n\n3. 모든 임원의 임기는 2년으로 한다.\n\n4. 보궐된 임원의 임기는 전임자의 잔여기간으로 한다.\n\n5. 고문 및 자문위원은 회장이 추대하고 명예회장은 전임회장이 된다.\n\n6. 각 기수 회장은→부회장으로, 총무이사는→이사로 당연직 선임한다.\n\n7. 각 국장은 필요에 따라 정기총회 후 신임회장의 필요에 따라 선출한다.</string>
     <string name="olc_law13">1. (회장) 회장은 본회를 대표하고 총회의 의장이 되며 본회 업무를 관리 감독하여야 하며 운영 전반을 총괄한다.\n\n2. (상임수석부회장) 회장을 보필하고 회장 유고시 회장의 권한을 대행하며,차기 회장을 승계한다.\n\n3. (수석부회장, 부회장) 회장 및 상임수석부회장을 보필하고 상임수석부회장유고시에는 임시 임원회의를 개최 수석부회장 중에서 선출 후 회원들에게서면으로 보고한다.\n\n4. (명예회장, 고문, 자문위원) 회장의 자문에 응하고 임원회에 출석하여의견을 개진할 수 있다.
-      \n\n5. (사무총장, 사무처장 및 국장)\n⑴ 사무총장은 회장을 보좌하며 본회의 운영을 담당한다.\n⑵ 사무처장은 사무총장을 보좌하여 본회의 대내외 행사에 참가하고,월 임원골프대회를 주관한다.\n⑶ 기획국장은 본회의 사업계획을 수립하고, 총동창회 수첩제작 및 대외국, 학교 측과 협의, 공개강좌 세미나를 개최하고 운용한다.\n⑷ 홍보국장은 홈페이지 및 모바일 네트워크 구축을 포함한 홍보업무 및 월 정기 등산모임과 등산대회를 관장하며 필요시 보좌역인 홍보간사를 둘 수 있다.\n⑸ 재무국장은 사무총장을 보좌하여 본회 모든 행사의 재정운용계획 (예산 및 찬조금)을 수립하여 행사를 원활히 할 수 있도록 활동한다.\n⑹ 사업국장은 본회의 골프대회(학장배, 총동창회장배)를 기획, 집행하고,사무처장을 보좌 월 임원골프대회를 주관 운용한다.\n⑺ 여성국장은 여성원우회 활성화와 지위향상, 발전전략의 수립 및 집행에 관하여 동창회장 및 여성 부회장을 보좌한다.\n⑻ 대외국장은 학교와의 유대관계 증진을 위한 활동을 담당한다.(자연대 교수 테니스 대회 참석, 세미나 개최 등을 포함)\n⑼ 협력국장은 집행부 각 국과의 협력 업무를 총괄하고 송년 행사를 기획, 주관한다.\n⑽ 감사는 업무 전반에 대해 필요시 언제라도 감사할 수 있고 총회와 임원회에 감사보고를 하여야 한다.\n⑾ 임원회에 참석하여 정당한 의결권을 행사하여야 한다.
-        \n⑿ 상근간사는 본회 실무업무 전반을 관리한다.
-        \n⒀ 상조국장은 동창회의 친목도모를 위하여 경조사에 적극 주관한다.
-        \n⒁ 예능국장은 송년회와 동창회 2부 행사에 주관한다.
-      \n\n6. (이사) 이사는 본회와 각 기수 모임과의 유기적인 관계를 유지하여 기획, 사업, 재무, 대외, 협력, 홍보, 여성국장의 활동을 보좌 지원한다.</string>
+      \n\n5. (사무총장, 사무처장 및 국장)\n사무총장은 총동창회장을 보좌하며 본회의 운영을 담당하고 동창회칙 제 3장 7조 1항에 의거 국장 및 부장을 총동장회장과 협의하여 신설과 축소 및 선출과 해임을 할 수 있고 해당 임무도 변경할 수 있다.
+      \n\n6. (이사) 이사는 본회와 각 기수 모임과의 유기적인 관계를 유지한다.</string>
     <string name="olc_law14">1. 회의는 정기총회와 임시총회, 임원회의, 운영위원 회의로 구분한다.
       \n\n2. 총회는 년 1회 개최하고 다음 사항을 의결한다.
         \n⑴ 사업계획 및 예산 결산(안)의 승인
@@ -77,11 +74,11 @@
         \n⑵ 임원회의 재적임원 3분의 1 이상의 요구가 있을 때 회장이 소집한다.
       \n\n5. 운영위원회의
         \n⑴ 본회 운영을 위한 사업추진 등 안건을 심의한다.
-        \n⑵ 운영위원은 회장, 상임수석부회장, 수석부회장, 사무총장, 사무처장,기획국장, 재무국장, 사업국장, 여성국장, 홍보국장, 대외국장, 협력국장,간사로 구성한다.
+        \n⑵ 운영위원은 총동창회장,상임수석부회장,수석부회장,사무총장,사무처장 및 국장과 부장으로 구성한다..
         \n⑶ 운영위원회의를 소집 시 회장은 10일 이내에 운영 위원에게 통지하여야 한다.
-      \n\n6. 여성원우회
-        \n⑴ 본회의 여성원우들의 지위향상 및 질적, 양적성장을 위하여 여성원우로만 구성된 여성원우회(여성국)을 설치한다. 여성원우회(여성국) 발전을 위하여 예산 및 인원을 최우선 배정하고 지속적인 관심과 지원을 아끼지 않는다.
-        \n⑵ 여성원우회(여성국) 고문은 여성원우회에서 선출, 매년 초 임원회의에 추천, 임원회의에서는 이를 추인 정기총회에서 여성 부회장으로 당연직 선출한다.</string>
+      \n\n6. 자문위원회
+        \n⑴ 자문위원단 \n총동창회ㅣ를 위하여 총동창회장 주관으로 역대 며예회장을 포함하여 별도 위촉한 자문위원으로 구성된 자문위원단을 구성하여 운용할 수 있다.
+        \n⑵ 자문위원 운용 \n총동창회은 자문위원단과 상임수석부회장 등이 포함된 본 자문위원회는 소정의 발전의무금의 납입의무를 갖게 되며, 현 총동창회 집행부는 사무총장, 사무처장의 일부의 필요 임원이 의무적으로 포함 참석한다.</string>
     <string name="olc_law15">1. 회장은 클럽을 대표하고 클럽 업무를 총괄하며 총회 및 이사회의 의장이 된다.\n2. 회장은 이사회에서 선출하고 그 임기는 2년으로 연임할 수 있다.</string>
     <string name="olc_law16">1. 수석부회장, 부회장 및 이사는 이사회에서 선임하고, 감사는 회원총회에서 선임한다. 단 이사와 감사는 겸할 수 없다.\n2. 이사는 이사회를 통해 클럽 제반 업무의 중요사항을 심의, 의결한다.\n3. 사무총장은 회장을 보좌하여 클럽의 행정업무를 집행한다.\n4. 감사는 클럽의 사업 및 회계를 감사한다.</string>
     <string name="olc_law17">1. 임원의 임기는 2년으로 한다. 단, 연임할 수 있다.\n2. 임원 중 임기만료 또는 기타의 사유로 결원이 생긴 경우에는 이사회에서 지체없이 선출하여야 하며 보선에 의하여 취임한 임원의 임기는 전임자의 잔임기간으로 한다.</string>
@@ -97,8 +94,8 @@
       \n4. 찬조금 및 기타 수입금
      \n5. 특별기금(기금자의 목적을 지정한 기금)
       \n6. 광고수입
-      \n7. 동창회 가입금, 임원 의무금은 임원회에서 정한 바에 따른다.</string>
-    <string name="olc_law19">1. 기금관리는 회장이 관리 감독하며 재무국장은 자금관리운용 및 본회 규정에 의거 관리한다.\n2. 회장은 자금 지출 및 집행은 사업계획에 의한 예산 편성에 따라 승인한 한도금액 내에서 집행하여야 한다. 단, 본회 운영상 필요 할 경우 임원회에 추경 예산편성을 요구할 수 있다.</string>
+      \n7. (재정사용)총동창회의 모든 행사 및 소모임 행사의 재정은 총회의 승인에 따라 지출되고 사용 후 증빙자료를 총동장회에 제출 되어야 한다.</string>
+    <string name="olc_law19">회장은 자금 지출 및 집행은 사업계획에 의한 예산 편성에 따라 승인한 한도금액 내에서 집행하여야 한다. 단, 본회 운영상 필요 할 경우 임원회에 추경 예산편성을 요구할 수 있다.</string>
     <string name="olc_law20">이사회는 다음 사항을 심의 결정한다.\n1. 총회에 상정할 의안과 총회에서 위임받은 사항\n2. 정관의 변경에 관한 사항\n3. 임원의 선임에 관한 사항\n4. 사업계획 및 운영에 관한 사항\n5. 예산 및 결산에 관한 사항\n6. 내규의 제정과 개폐에 관한 사항\n7. 기본 재산의 획득과 처분에 관한 사항\n8. 본 사무소 설치에 관한 사항\n9. 해산 및 잔여 재산의 처리에 관한 사항\n10. 기타 클럽 운영에 중요하다고 인정되는 사안으로서 회장 또는 수석부회장이 부의하는 사항\n</string>
     <string name="olc_law21">1. 이사회는 정관으로 따로 정한 경우를 제외하고는 재적이사 과반수 이상의 출석과 출석이사 과반수의 찬성으로 결정하며 可否同數인 경우에는 의장이 결정한다.\n2. 정관의 변경 및 클럽의 해산에 관하여는 재적이사 3분의 2 이상의 찬성으로 의결한다. 정관의 변경은 주무관청의 사후승인을 받아야 한다.\n3. 이사회의 심의사항이 자신의 이해에 관련되는 이사는 당해 회의에 참석하지 못한다.\n4. 이사는 그가 지명한 대리인에게 의결권을 위임할 수 있으며 대리인은 그 대리권을 증명하는 서류를 제출하여야 한다.</string>
     <string name="olc_law22">클럽의 목적달성을 위하여 필요한 때에는 이사회 의결에 의하여 출판위원회 등 분과위원회를 둘 수 있다.</string>
@@ -127,7 +124,7 @@
     <string name="olc_law29">1. 모든 의결 정족수는 참석자중 2분의 1이상 찬성으로 의결한다.
        \n2. 본 회칙은 정기총회에서 의결된 날로부터 시행한다.
        \n3. 본 회칙에 정하지 않은 사항은 일반관례에 따른다.
-       \n4. 본 회칙은 2018년 2월 20일 부로 개정한다.</string>
+       \n4. 본 회칙은 2019년 3월 29일 부로 개정한다.</string>
     <string name="olc_law30">본 클럽의 회계연도는 매년 1월 1일로부터 12월 31일까지로 한다.</string>
     <string name="olc_law31">1. 본 클럽 재정의 통일적인 운영을 위하여 클럽의 재산은 별도의 계정으로 운영하며, 예산은 이사회의 사전 또는 사후승인을 받아야 한다.\n2. 이사회는 본 클럽 재정을 위하여 내규를 제정할 수 있다.</string>
     <string name="olc_law32">클럽이 해산하였을 때 잔여재산은 이사회 의결과 총회승인을 거쳐 국가기관, 지방자치단체 또는 이와 유사한 목적을 가진 비영리법인에 기증한다.</string>
@@ -140,28 +137,31 @@
     <string name="olc_office_phone">02)3289-4214</string>
     <string name="olc_office_email">olc@sogang.ac.kr</string>
 
-    <string name="olp_intro">"50년의 일관된 시장경제 교육 경험을 바탕으로 서강대학교 경제대학원이 오피니언 리더들을 위하여 개발한 국내 최고의 경제ㆍ경영 전문과정입니다. "복잡한 경제 문제를 명쾌하고 재미있게 정리하는 강좌들로 구성됩니다. 교수진은 경제 및 경영에 전문지식이 있는 국내 외 최고 전문가로 구성됩니다. 이론이 아닌 현실 이슈를 주제로 하되 원리의 이해 및 적용을 중요시합니다. 일방적인 강의가 아닌 세미나식 강좌 등으로 쌍방향 소통이 이루어지는 교육을 실시합니다.</string>
-    <string name="olp_intro2_1">해당분야의 국내·외 최고권위자로부터 이슈의 핵심에 대하여 쉽고, 명쾌한 강의를 듣습니다. 강의는 이슈에 대한 언론보도 등 사례를 들어 문제를 부각하고, 주요원리와 개념을 소개한 다음, 그 적용과정을 설명하고, 관련정보와 문헌을 소개하는 등 체계적으로 이루어집니다.</string>
-    <string name="olp_intro2_2">중요한 주제들에 대해서는 일방적 강의를 지양하고 그 분야의 각계 전문가들을 함께 모셔 주제발표를 듣고 발표자와 수강생들이 함께 토론하는 형태로 진행함으로써 교육효과의 질을 높입니다. 또한 연합세미나를 개최하여 기수간의 유대감을 고취시킵니다.</string>
+    <string name="olp_intro">첨단과학에 대한 바른 이해와 미래지향적인 과학문화 정착을 위해 개설되었습니다.\n과학기술산업융합최고전략과정(SPARC)은 첨단과학에 대한 바른 이해와 미래지향적인 과학문화 정착을 위해 개설되었다.</string>
+    <string name="olp_intro2_1">본 과정은 우리사회의 지도층 인사들과 함께 과학에 대한 정확한 이해를 바탕으로 미래의 과학기술을 예측하고 대비할 수 있는 비전을 갖추고 우리나라에 필요한 새로운 국가발전모델을 찾고자 한다.</string>
+    <string name="olp_intro2_2">또한 기업의 임원, 연구담당 책임자 등에게 신제품 개발을 위한 원천적 과학지식을 습득하고 이해하게 하여 궁극적으로 기술경쟁력을 키우는 교육의 장을 만드는 것을 목적으로 한다.</string>
     <string name="olp_intro2_3">강의실의 딱딱함을 벗어나 휴양지의 편안한 분위기에서 전문가들과 함께 토론하며 배우고, 부부 특강 및 골프, 등산 등 취미활동을 통하여 원우들 간의 친목을 도모합니다. 이러한 교류는 프로그램 수료 후에도 지속됨으로써 전문인들끼리의 네트워크 형성에도 기여합니다.</string>
     <string name="olp_intro3_1">이 과정을 이수한 동문에게는 서강대학교 총장과 경제대학원장 명의의 수료증을 수여하며, 서강대학교 동문회의 정회원 자격이 주어집니다.</string>
     <string name="olp_intro3_2">본 과정을 이수 중이거나 이수 후, 경제 이슈에 관하여 재직교수들의 자문이나 정보가 필요할 때 성의로 응해드립니다.</string>
     <string name="olp_intro4">Opinion Leaders Program의 교수진은 교수 전원이 미국의 명문대학 박사학위 소지자인 서강대학교 경제학부 교수진과 경제, 경영, 언론 각계에서 활약하는 최고의 전문가들로 이루어진 명실상부한 국내 최고의 교수진입니다. 탄탄한 이론에 바탕한 풍부한 사례, 다양한 정책참여 경험 등이 쉽고 재미있는 강의를 만들 것입니다.</string>
     <string name="olp_intro5">Opinion Leaders Program은 전국경제인연합회, 한국신문협회가 협찬하는 산학협동 프로그램입니다.</string>
 
-    <string name="olp_cur">복잡하고 변화무쌍한 경제 현실 속에 숨어있는 경제원리를 쉽고, 명쾌하게 들여다보는 도구를 갖게 해줍니다. 아울러 경제원리가 실제 시장경제에서 법, 제도와 함께 어떻게 적용되는지 다양한 사례들을 토론합니다.</string>
-    <string name="olp_cur1_2">- 글로벌 경제와 한국의 미래\n- 시장경제의 이해와 오해\n- 한국경제의 성장원천과 미래\n- 법과 시장의 조화\n- 신 글로벌 경제질서의 전망\n- 금리변동 : 왜? 어떻게?\n- 환율변동의 올바른 이해 \n- 한국 제조업의 경쟁력 </string>
-    <string name="olp_cur2_1">급변하는 경영환경 속에서 국내 주요 대기업과 세계 초일류 기업들은 어떤 전략으로 대처하는지 심층적으로 연구하여 국내외 경영환경을 조망하는 리더의 안목을 키워줍니다. 또한 구조조정, 합병 후 통합작업, 지식 경영 등 현안 이슈들에 대한 현장감 있는 강좌가 제공됩니다.</string>
+    <string name="olp_cur">-과학적 사고 및 미래지향적인 비전과 리더십을 갖춘 CEO양성\n-21세기 지식경쟁시대를 이끌 사회지도층 능력 개발\n-전문기업인 동문 및 석학과의 인전 네트워크 구축\n-전공분야에 관계없이 과학 원리에 대해 쉽고 흥미로운 강의\n-각 분야의 최고권위자로 구성된 강사진\n-"봄-배움 학기"와 "가을-나눔 학기"로 1년 단위 수강 가능\n-"배움 학기"와 "나눔 학기"는 서로  다른강좌로 구성</string>
+    <string name="olp_cur1_2">-과학에 대한 강의는 물론 심리학,철학 등 인문학과 문학,예술등 교양을 포함한 글로벌 리더십 강좌로 구성됨\n-한국최고의 강사에게 듣는 흥미롭고 유익한 과학 강의\n-기초과학의 이해:생명과학,수학,물리,천문,화학,지구환경등\n-첨단과학기술의 소개:정보과학,나노과학,생명과학,환경과학,우주과학등\n-합숙특강,부부특강,워크숍,견학등의 특별 프로그램 진행</string>
+    <string name="olp_cur2_1">-서울대학교 총장 명의의 이수증서 수여\n-서울대학교 총동창회 준회원으로 가입\n-기업을 위한 원천적 과학기술의 자문 및 연계\n-본 과정 이수자를 위해 동창회를 구성하여 본 대학과 지속적인 유대 관계 유지\n-교육생의 자녀를 위한 과학커뮤니티 형성 및 관리,서울대 체험(만남의 시간)\n-연계 진학시 수강료 할인 해택</string>
     <string name="olp_cur2_2">- 기업이란 무엇인가\n- CEO 리더십과 기업경영\n- 글로벌 초일류 기업의 조건\n- 국내 주요 기업의 경영전략과 특색\n- 21세기 인적 자원 경영 \n- 중소기업과 벤처기업의 역할\n- 외국인 투자와 경영권 문제\n- 협상의 전략과 사례</string>
     <string name="olp_cur3_1">저널리즘은 경제현상을 어떻게 이해하여야 하는가에 대하여 강의하고 토론합니다. 경제정책 형성과 언론은 어떻게 상호 영향을 주고받는지, 기업보도와 기업정책은 어떤 연관이 있는지 사례분석 등으로 연구하여 바람직한 언론, 기업, 정부의 관계를 모색합니다. </string>
     <string name="olp_cur3_2">- 경제정책 형성과 언론의 상호관계\n- 언론 개혁과 미디어 산업의 미래\n- 언론의 기업보도와 소비자의 알 권리\n- 경제지식, 여론, 정책의 상호관계\n- 광고와 언론보도의 관계정립\n- SNS와 언론\n- 기업발전을 위한 언론의 역할</string>
 
-    <string name="olp_office_address_1">서울특별시 마포구 백범로 35 서강대학교 경제대학원</string>
+    <string name="olp_office_address_1">(08826)서울시 관악구 관악로 1 서울대학교 자연과학대학 501동 230호</string>
     <string name="olp_office_address_2">Opinion Leaders Program</string>
-    <string name="olp_office_phone">02-3289-4214</string>
-    <string name="olp_office_fax">02-705-8018</string>
-    <string name="olp_office_homepage">http://olp.sogang.ac.kr</string>
-    <string name="olp_office_email">solp@sogang.ac.kr</string>
+    <string name="olp_office_phone">02-880-6251</string>
+    <string name="olp_office_phone2">02-880-4352</string>
+    <string name="olp_office_fax">02-878-9674</string>
+    <string name="olp_manger1">010-3488-1616</string>
+    <string name="olp_manger2">010-6212-9018</string>
+    <string name="olp_office_homepage">https://sparc.snu.ac.kr</string>
+    <string name="olp_office_email">sparc@snu.ac.kr</string>
     <string name="title_activity_olp">OlpActivity</string>
     <string name="title_activity_olc_manual">메뉴얼</string>
     <string name="manual_main"><![CDATA[<h1>메인 화면</h> <br><br><font color="#DD7250">1</font>번은 메뉴입니다. <br><font color="#DD7250">2</font>번은 광고로 여러개의 광고가 로테이션됩니다.]]></string>
@@ -170,8 +170,23 @@
     <string name="manual_schadual"><![CDATA[<h1>일정</h> <br><br>원우들에게 알릴 일정입니다.]]></string>
     <string name="manual_olc"><![CDATA[<h1>OLC</h> <br><br>OLC에 대한 소개입니다.]]></string>
     <string name="manual_olp"><![CDATA[<h1>OLP</h> <br><br>OLP에 대한 소개입니다.]]></string>
-    <string name="mainUrl">https://www.olc.or.kr:8443/OLC_SERVER/</string>
+    <string name="mainUrl">https://www.moilsurok.com:8443/</string>
+    <string name="mainUrlTest">http://192.168.123.107:8080/</string>
     <string name="checkUser">checkUser.m</string>
     <string name="getInfo">getInfo.m</string>
     <string name="getInfoOK">getInfoOK.m</string>
+    <string name="addUserToken">addUserToken.m</string>
+    <string name="olpRecMemberNum">-40명 내외</string>
+    <string name="olpRecMember1">-과학기술과 글로벌 리더십을 이해하는 멋진 기업인이 되고자하는 인사\n-국회,법원,행정부 지도급 인사\n-군,언론계,지방자치단체등 주요기관의 간부\n-의사,교수,변호사,공인회계사등 전문직 인사\n-기타 위의 자격과 상응한다고 인정되는 인사</string>
+    <string name="olpRecMember2">-접수방법:우편,e-mail,홈페이지\n-입학지원서는 본 과정 홈페이지(https://sparc.snu.ac.kr)에서 다운로드 가능합니다.\n-서류전형 및 면접(※서류전형 합격자에 한해 면접 실시,개별 통지)</string>
+    <string name="olpRecMember3">-입학지원서(소정양식)\n-사업자등록증 또는 재직증명서(1부)\n-회사 및 기관안내 책자(※제출된 서류는 반환하지 않습니다.)</string>
+    <string name="default_notification_channel_id">모일수록</string>
+    <string name="gjec_url">http://www.gjec.co.kr/main/main.html</string>
+    <string name="anysho_url">https://www.anyshomelife.com</string>
+    <string name="inettv_url">http://www.inettv.tv</string>
+    <string name="orient_url">http://www.orient.co.kr/common/main.asp</string>
+    <string name="ysk_url">http://ysk.co.kr</string>
+    <string name="vhc_url">http://www.vhc.co.kr/sub/main.asp</string>
+    <string name="modoo_url">https://cnbcosmetic.modoo.at</string>
+    <string name="softmill_url">http://www.softmill.co.kr/project/dhsm</string>
 </resources>

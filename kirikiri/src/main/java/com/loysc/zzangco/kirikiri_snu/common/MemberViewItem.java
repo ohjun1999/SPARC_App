@@ -30,6 +30,15 @@ public class MemberViewItem implements Serializable{
     private String businame;
     private String grannumber;
     private String fav;
+    private String homePage;
+
+    public String getHomePage() {
+        return homePage;
+    }
+
+    public void setHomePage(String homePage) {
+        this.homePage = homePage;
+    }
 
     public String getFav() {
         return fav;

@@ -1,5 +1,7 @@
 package com.loysc.zzangco.kirikiri_snu.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,14 +9,31 @@ import java.io.Serializable;
  */
 
 public class MemberReadVo implements Serializable {
+    @SerializedName("id")
     private String id;
+
+    @SerializedName("tableID")
     private String tableID;
+
+    @SerializedName("memberID")
     private String memberID;
+
+    @SerializedName("dataType")
     private String dataType;
+
+    @SerializedName("readOK")
     private String readOK;
+
+    @SerializedName("createDate")
     private String createDate;
+
+    @SerializedName("updateDate")
     private String updateDate;
+
+    @SerializedName("content")
     private String content;
+
+    @SerializedName("action")
     private String action;
 
     public String getAction() {

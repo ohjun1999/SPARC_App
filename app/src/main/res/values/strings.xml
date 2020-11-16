@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">VallejoColorChart</string>
+
+    <string name="title_activity_color_list">ColorListActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+
+    <string name="title_activity_menu">MenuActivity</string>
+
+    <string name="title_activity_vallejo">VallejoActivity</string>
+    <string name="title_activity_total_color_list">TotalColorListActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

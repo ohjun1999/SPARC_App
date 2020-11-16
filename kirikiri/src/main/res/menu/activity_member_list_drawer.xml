@@ -7,11 +7,18 @@
         android:id="@+id/gruNumberGroup"
         android:checkableBehavior="single"
         android:enabled="true">
+        android:enabled="true">
+
+        <item
+            android:id="@+id/all_member_title"
+            android:checked="true"
+
+            android:title="전체/기수별/직군별" ></item>
         <item
             android:id="@+id/all_member"
-            android:checked="true"
+            android:checkable="true"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="전체" ></item>
+            android:title="전체" />
         <item
             android:id="@+id/first_member"
             android:checkable="true"
@@ -174,6 +181,26 @@
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="33기" />
         <item
+            android:id="@+id/thirtyFifth_member"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="34기" />
+        <item
+            android:id="@+id/thirtyFifth_member1"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="35기" />
+        <item
+            android:id="@+id/thirtyFifth_member2"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="36기" />
+        <item
+            android:id="@+id/thirtyFifth_member3"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="37기" />
+        <item
             android:id="@+id/professor_member"
             android:checkable="true"
             android:icon="@drawable/ic_account_circle_black_24dp"
@@ -186,95 +213,95 @@
         android:enabled="true">
         <item
             android:id="@+id/it"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/it"
             android:title="IT 인터넷" />
         <item
             android:id="@+id/iron"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/mechi"
             android:title="금속 기계" />
         <item
             android:id="@+id/eletron"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/commu"
             android:title="전기 정보 통신" />
         <item
             android:id="@+id/bio"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/chemi"
             android:title="바이오 화학" />
         <item
             android:id="@+id/energe"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/ener"
             android:title="에너지 환경" />
         <item
             android:id="@+id/construction"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/enterprise"
             android:title="토목 건설 부동산" />
         <item
             android:id="@+id/manufacturing"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/facto"
             android:title="제품 제조" />
         <item
             android:id="@+id/pharmaceutical"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/hospital"
             android:title="제약 의료" />
         <item
             android:id="@+id/apparel"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/fashion"
             android:title="패션 디자인" />
         <item
             android:id="@+id/food"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/food"
             android:title="식품 음료" />
         <item
             android:id="@+id/agriculture"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/arg"
             android:title="농축산" />
         <item
             android:id="@+id/beauty"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/beauty"
             android:title="건강 미용" />
         <item
             android:id="@+id/distribution"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/logistics"
             android:title="물류 유통 무역" />
         <item
             android:id="@+id/marketing"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/promotion"
             android:title="마케팅 홍보 광고" />
         <item
             android:id="@+id/broadcasting"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/broadcast"
             android:title="방송 언론" />
         <item
             android:id="@+id/culture"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/book"
             android:title="문화 예술 출판" />
         <item
             android:id="@+id/offices"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/government"
             android:title="관공서 공기업" />
         <item
             android:id="@+id/law"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/law"
             android:title="법조 특허" />
         <item
             android:id="@+id/accounting"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/account"
             android:title="행정 회계 세무" />
         <item
             android:id="@+id/finance"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/financial"
             android:title="금융 투자" />
         <item
             android:id="@+id/education"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/school"
             android:title="교육 학교" />
         <item
             android:id="@+id/traffic"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/traffic"
             android:title="교통 항공" />
         <item
             android:id="@+id/leisure"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/travel"
             android:title="레져 여행" />
         <item
             android:id="@+id/group"
@@ -282,31 +309,31 @@
             android:title="단체 재단" />
         <item
             android:id="@+id/academy"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/academy"
             android:title="연구소 학회" />
         <item
             android:id="@+id/party"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/party"
             android:title="정당" />
         <item
             android:id="@+id/engineering"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/engineering"
             android:title="설계 엔지니어링" />
         <item
             android:id="@+id/equipment"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/equipment"
             android:title="설비 관리" />
         <item
             android:id="@+id/research"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/research"
             android:title="리서치 컨설팅" />
         <item
             android:id="@+id/recruiting"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/recruiting"
             android:title="리쿠르팅 소씽" />
         <item
             android:id="@+id/printing"
-            android:icon="@drawable/ngo"
+            android:icon="@drawable/printing"
             android:title="판촉 인쇄" />
         <item
             android:id="@+id/etc"

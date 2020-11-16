@@ -1,20 +1,28 @@
 package com.loysc.zzangco.kirikiri_snu.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
 
+import com.google.android.material.navigation.NavigationView;
 import com.loysc.zzangco.kirikiri_snu.R;
 
 import java.util.ArrayList;
@@ -40,17 +48,186 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
 
     private SearchView searchView;
 
+    private TextView tvgi,tvni,tvdi,tvri,tvma,tvba,tvsa,tva,tja,tcha,tka,tta,tpa,tha;
 
+    private ViewFlipper vfSlider;
+    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner5,imgBanner7,imgBanner8,imgBanner9;
+
+    private Animation slide_out_left,slide_in_right;
+    private Animation slide_in_left,slide_out_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_list);
 
-
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         rcMemberList = (RecyclerView)findViewById(R.id.rcMemberList);
+
+        vfSlider = (ViewFlipper)findViewById(R.id.vfSlider);
+        imgBanner1 = (ImageView)findViewById(R.id.imgBanner1);
+        imgBanner2 = (ImageView)findViewById(R.id.imgBanner2);
+        imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
+        imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
+        imgBanner7 = (ImageView)findViewById(R.id.imgBanner7);
+        imgBanner8 = (ImageView)findViewById(R.id.imgBanner8);
+        imgBanner9 = (ImageView)findViewById(R.id.imgBanner9);
+
+        tvgi = (TextView)findViewById(R.id.tvgi);
+        tvni = (TextView)findViewById(R.id.tvni);
+        tvdi = (TextView)findViewById(R.id.tvdi);
+        tvri = (TextView)findViewById(R.id.tvri);
+        tvma = (TextView)findViewById(R.id.tvma);
+        tvba = (TextView)findViewById(R.id.tvba);
+        tvsa = (TextView)findViewById(R.id.tvsa);
+
+        tva = (TextView)findViewById(R.id.tva);
+        tja = (TextView)findViewById(R.id.tja);
+        tcha = (TextView)findViewById(R.id.tcha);
+        tka = (TextView)findViewById(R.id.tka);
+        tta = (TextView)findViewById(R.id.tta);
+        tpa = (TextView)findViewById(R.id.tpa);
+        tha = (TextView)findViewById(R.id.tha);
+
+        tvgi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㄱ");
+            }
+        });
+        tvni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㄴ");
+            }
+        });
+        tvdi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㄷ");
+            }
+        });
+        tvri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㄹ");
+            }
+        });
+        tvma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅁ");
+            }
+        });
+        tvba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅂ");
+            }
+        });
+        tvsa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅅ");
+            }
+        });
+        tva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅇ");
+            }
+        });
+        tja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅈ");
+            }
+        });
+        tcha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅊ");
+            }
+        });
+        tka.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅋ");
+            }
+        });
+        tta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅌ");
+            }
+        });
+        tpa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅍ");
+            }
+        });
+        tha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addListItemSearchPan("ㅎ");
+            }
+        });
+
+
+        imgBanner1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.anysho_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
+                startActivity(intent);
+            }
+        });
+
+        imgBanner5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.vhc_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.modoo_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.softmill_url)));
+                startActivity(intent);
+            }
+        });
+
+
+
         rcMemberList.setHasFixedSize(true);
         adapter = new MemberAdapter(this,items);
 
@@ -76,6 +253,15 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
         getSupportActionBar().setTitle("전체");
 
         MainActivity.instance.asyncDialog.dismiss();
+
+        slide_in_left = AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left );
+        slide_out_right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right );
+
+        slide_out_left = AnimationUtils.loadAnimation(this,R.anim.ani_translate_l );
+        slide_in_right = AnimationUtils.loadAnimation(this,R.anim.ani_translate_r );
+
+        vfSlider.setInAnimation(slide_in_right);
+        vfSlider.setOutAnimation(slide_out_left);
     }
 
 
@@ -84,15 +270,32 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
         items.clear();
         getDatastore();
 
+        this.granNumber = granNumber;
+
         memberInfo.openc();
         List<MemberViewItem> list = memberInfo.getMemberList(searchWord,granNumber,fav,business);
+
 
         for(MemberViewItem item : list){
             items.add(item);
         }
         adapter.notifyDataSetChanged();
         rcMemberList.scrollToPosition(0);
+    }
 
+    private void addListItemSearchPan(String searchWord){
+        items.clear();
+        getDatastore();
+        //Log.e("zzangco","여기 값이 뭔데 안돼는거야.....granNumber="+granNumber);
+        memberInfo.openc();
+        List<MemberViewItem> list = memberInfo.getMemberListSearch(searchWord,granNumber,favorite,business);
+
+        memberInfo.getMemberListSearch(searchWord,granNumber,favorite,business);
+        for(MemberViewItem item : list){
+            items.add(item);
+        }
+        adapter.notifyDataSetChanged();
+        rcMemberList.scrollToPosition(0);
     }
 
     private MemberInfo getDatastore(){
@@ -160,7 +363,7 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
+        // automatically handle clicks on the Home/Up button, so longwww
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
@@ -285,145 +488,44 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.thirtyThird_member) {
             addListItem(searchWord,"33",favorite,business);
             toolbar.setTitle("33기");
+        } else if (id == R.id.thirtyFifth_member) {
+            addListItem(searchWord,"34",favorite,business);
+            toolbar.setTitle("34기");
+        } else if (id == R.id.thirtyFifth_member1) {
+            addListItem(searchWord,"35",favorite,business);
+            toolbar.setTitle("35기");
+        } else if (id == R.id.thirtyFifth_member2) {
+            addListItem(searchWord,"36",favorite,business);
+            toolbar.setTitle("36기");
+        } else if (id == R.id.thirtyFifth_member3) {
+            addListItem(searchWord,"37",favorite,business);
+            toolbar.setTitle("37기");
         } else if (id == R.id.professor_member) {
-            addListItem(searchWord,"99",favorite,business);
+            addListItem(searchWord, "99", favorite, business);
             toolbar.setTitle("교수진");
         }else if(id == R.id.all_member) {
             business = null;
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("전체");
-        }else if(id == R.id.it){
-            business = "1";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("IT 인터넷");
-        }else if(id == R.id.iron){
-            business = "2";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("금속 기계");
-        }else if(id == R.id.eletron){
-            business = "3";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("전기 정보 통신");
-        }else if(id == R.id.bio){
-            business = "4";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("바이오 화학");
-        }else if(id == R.id.energe){
-            business = "5";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("에너지 환경");
-        }else if(id == R.id.construction){
-            business = "6";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("토목 건설 부동산");
-        }else if(id == R.id.manufacturing){
-            business = "7";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("제품 제조");
-        }else if(id == R.id.pharmaceutical){
-            business = "8";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("제약 의료");
-        }else if(id == R.id.apparel){
-            business = "9";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("패션 디자인");
-        }else if(id == R.id.food){
-            business = "10";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("식품 음료");
-        }else if(id == R.id.agriculture){
-            business = "11";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("농축산");
-        }else if(id == R.id.beauty){
-            business = "12";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("건강 미용");
-        }else if(id == R.id.distribution){
-            business = "13";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("물류 유통 무역");
-        }else if(id == R.id.marketing){
-            business = "14";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("마케팅 홍보 광고");
-        }else if(id == R.id.broadcasting){
-            business = "15";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("방송 언론");
-        }else if(id == R.id.culture){
-            business = "16";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("문화 예술 출판");
-        }else if(id == R.id.offices){
-            business = "17";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("관공서 공기업");
-        }else if(id == R.id.law){
-            business = "18";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("법조 특허");
-        }else if(id == R.id.accounting){
-            business = "19";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("행정 회계 세무");
-        }else if(id == R.id.finance){
-            business = "20";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("금융 투자");
-        }else if(id == R.id.education){
-            business = "21";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("교육 학교");
-        }else if(id == R.id.traffic){
-            business = "22";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("교통 항공");
-        }else if(id == R.id.leisure) {
-            business = "23";
             addListItem(searchWord, "00", favorite, business);
-            toolbar.setTitle("레져 여행");
-        }else if(id == R.id.group){
-            business = "24";
+            toolbar.setTitle("전체");
+        }else{
+            business = item.getTitle().toString();
             addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("단체 재단");
-        }else if(id == R.id.academy){
-            business = "25";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("연구소 학회");
-        }else if(id == R.id.party){
-            business = "26";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("정당");
-        }else if(id == R.id.engineering){
-            business = "27";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("설계 엔지니어링");
-        }else if(id == R.id.equipment){
-            business = "28";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("설비 관리");
-        }else if(id == R.id.research){
-            business = "29";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("리서치 컨설팅");
-        }else if(id == R.id.recruiting){
-            business = "30";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("리쿠르팅 소씽");
-        }else if(id == R.id.printing){
-            business = "31";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("판촉 인쇄");
-        }else if(id == R.id.etc){
-            business = "0";
-            addListItem(searchWord,"00",favorite,business);
-            toolbar.setTitle("기타");
+            toolbar.setTitle(item.getTitle());
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //int firstViewInt = ZZangcoUtility.randomRange(0,2);
+
+        vfSlider.setDisplayedChild(0);
+        vfSlider.startFlipping();
+
+        vfSlider.setFlipInterval(2500);
     }
 }

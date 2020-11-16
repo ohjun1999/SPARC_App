@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -165,11 +165,11 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -180,51 +180,73 @@
         <ViewFlipper
             android:id="@+id/vfSlider"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="279dp">
 
 
             <ImageView
                 android:id="@+id/imgBanner1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/banner6" />
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banner1" />
 
             <ImageView
                 android:id="@+id/imgBanner2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
                 app:srcCompat="@drawable/banner2" />
 
             <ImageView
                 android:id="@+id/imgBanner3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
                 app:srcCompat="@drawable/banner3" />
 
             <ImageView
                 android:id="@+id/imgBanner4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/banner1" />
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banner4" />
 
             <ImageView
                 android:id="@+id/imgBanner5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/banner4" />
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banner5" />
+
             <ImageView
-                android:id="@+id/imgBanner6"
+                android:id="@+id/imgBanner7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/banner5" />
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banner7" />
+
+            <ImageView
+                android:id="@+id/imgBanner8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banner8" />
+
+            <ImageView
+                android:id="@+id/imgBanner9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banner9" />
         </ViewFlipper>
+        <TextView
+            android:id="@+id/tvPerRule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="개인정보처리방침"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary" />
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

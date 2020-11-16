@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/all_about"
+            android:icon="@drawable/ic_model_ac_color_title"
+            android:title="All Color" />
+        <item
+            android:id="@+id/vallejo"
+            android:icon="@drawable/ic_vallejo"
+            android:title="vallejo" >
+            <menu>
+                <item
+                    android:id="@+id/vallejo_all"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="All"/>
+                <item
+                    android:id="@+id/model_color"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="ModelColor"/>
+                <item
+                    android:id="@+id/model_air"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="ModelAir"/>
+                <item
+                    android:id="@+id/game_color"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="GameColor"/>
+                <item
+                    android:id="@+id/game_air"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="GameAir"/>
+                <item
+                    android:id="@+id/model_wash"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="ModelWash"/>
+                <item
+                    android:id="@+id/panzer_color"
+                    android:icon="@drawable/ic_vallejo"
+                    android:title="PanzerColor"/>
+            </menu>
+        </item>
+        <item
+            android:id="@+id/tamiya"
+            android:icon="@drawable/ic_tamiya"
+            android:title="tamiya" >
+            <menu>
+                <item
+                    android:id="@+id/tamiya_all"
+                    android:icon="@drawable/ic_tamiya"
+                    android:title="All" />
+                <item
+                    android:id="@+id/tamiya_x"
+                    android:icon="@drawable/ic_tamiya"
+                    android:title="X" />
+                <item
+                    android:id="@+id/tamiya_xf"
+                    android:icon="@drawable/ic_tamiya"
+                    android:title="XF" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/testors"
+            android:icon="@drawable/ic_testors"
+            android:title="testors" >
+            <menu>
+                <item
+                    android:id="@+id/testors_all"
+                    android:icon="@drawable/ic_testors"
+                    android:title="All" />
+                <item
+                    android:id="@+id/basic_color"
+                    android:icon="@drawable/ic_testors"
+                    android:title="BasicColor" />
+                <item
+                    android:id="@+id/fscolor"
+                    android:icon="@drawable/ic_testors"
+                    android:title="FSColor" />
+                <item
+                    android:id="@+id/afv"
+                    android:icon="@drawable/ic_testors"
+                    android:title="AFV" />
+                <item
+                    android:id="@+id/marine_color"
+                    android:icon="@drawable/ic_testors"
+                    android:title="MarineColor" />
+                <item
+                    android:id="@+id/wwii"
+                    android:icon="@drawable/ic_testors"
+                    android:title="WWII" />
+            </menu>
+        </item>
+    </group>
+</menu>

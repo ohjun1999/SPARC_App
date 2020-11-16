@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keep class com.google.** { *; }
+-keep class com.android.** { *; }
+-keep class android.support.v7.** { *; }
+-keep class java.lang.** { *; }
+-dontwarn android.support.v7.**

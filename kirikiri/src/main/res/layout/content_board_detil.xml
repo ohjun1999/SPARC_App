@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,20 +9,21 @@
     tools:context="com.loysc.zzangco.kirikiri_snu.activity.BoardDetilActivity"
     tools:showIn="@layout/activity_board_detil">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/board_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:transitionName="boardcardview"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#F0F8FF"
-            android:gravity="center"
+            android:gravity="center|top"
             android:orientation="horizontal">
 
             <ImageView
@@ -36,13 +37,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.1"
+                    android:layout_weight="0.9"
                     android:orientation="horizontal">
 
                     <TextView
@@ -68,12 +69,6 @@
                         android:visibility="gone" />
                 </LinearLayout>
 
-                <WebView
-                    android:id="@+id/wvContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.9" />
-
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -91,15 +86,22 @@
                             android:id="@+id/tvContent"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="1"
                             android:text="내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다."
                             android:textSize="18sp"
                             android:transitionName="content" />
                     </LinearLayout>
                 </ScrollView>
+
+                <WebView
+                    android:id="@+id/wvContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    tools:ignore="WebViewLayout" />
             </LinearLayout>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

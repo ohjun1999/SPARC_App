@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="vallejo">
+        <item>ModelColor</item>
+        <item>ModelAir</item>
+        <item>Panzer</item>
+        <item>GameColor</item>
+        <item>GameAir</item>
+        <item>ModelWash</item>
+    </string-array>
+    <string-array name="tamiya">
+        <item>All</item>
+        <item>X</item>
+        <item>XF</item>
+    </string-array>
+    <string-array name="modelmaster">
+        <item>All</item>
+        <item>AFV</item>
+        <item>BasicColor</item>
+        <item>FSColor</item>
+        <item>MarineColor</item>
+        <item>WWII</item>
+    </string-array>
+</resources>

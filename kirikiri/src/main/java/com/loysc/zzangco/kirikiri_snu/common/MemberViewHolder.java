@@ -1,10 +1,12 @@
 package com.loysc.zzangco.kirikiri_snu.common;
 
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.loysc.zzangco.kirikiri_snu.R;
 
@@ -23,6 +25,9 @@ public class MemberViewHolder extends RecyclerView.ViewHolder {
     public ImageView imgEmail;
     public TextView tvDept;
     public TextView tvPosition;
+    public TextView tvBusinessName;
+    public TextView tvHomepage;
+    public TableRow trHomepage;
 
     public CardView member_card;
 
@@ -40,5 +45,8 @@ public class MemberViewHolder extends RecyclerView.ViewHolder {
         imgEmail = (ImageView)itemView.findViewById(R.id.imgEmail);
         tvDept = (TextView)itemView.findViewById(R.id.tvDept);
         tvPosition = (TextView)itemView.findViewById(R.id.tvPosition);
+        tvBusinessName = (TextView)itemView.findViewById(R.id.tvBusinessName);
+        tvHomepage = (TextView)itemView.findViewById(R.id.tvHomepage);
+        trHomepage = (TableRow)itemView.findViewById(R.id.trHomepage);
     }
 }

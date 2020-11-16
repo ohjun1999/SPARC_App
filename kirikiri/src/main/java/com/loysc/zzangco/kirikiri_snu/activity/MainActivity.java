@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -16,6 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.loysc.zzangco.kirikiri_snu.R;
 
 import java.io.File;
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
     private ImageView imgOLCA,imgAlarm,imgSchedule,imgOLCF,imgOLCS,imgBand;
     private TextView tvHome,tvReload,tvConnect,tvEnd;
     private ViewFlipper vfSlider;
-    private ImageView imgBanner1,imgBanner2,imgBanner3;
+    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner4,imgBanner5,imgBanner7,imgBanner8,imgBanner9;
 
     private HttpConnection httpConnection;
     private HttpConnectionNoHandler httpConnectionNoHandler;
@@ -50,13 +54,17 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
 
     private BackPressCloseHandler backPressCloseHandler;
 
+    private String myNumber = null;
+
+    public static final String USER_PHONE_NUM = "userPhoneNum";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        myNumber = getIntent().getStringExtra(USER_PHONE_NUM);
         instance = this;
 
         imgOLCA     = (ImageView)findViewById(R.id.imgOLCA);
@@ -75,6 +83,14 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
         imgBanner1 = (ImageView)findViewById(R.id.imgBanner1);
         imgBanner2 = (ImageView)findViewById(R.id.imgBanner2);
         imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
+        imgBanner4 = (ImageView)findViewById(R.id.imgBanner4);
+        imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
+        imgBanner7 = (ImageView)findViewById(R.id.imgBanner7);
+        imgBanner8 = (ImageView)findViewById(R.id.imgBanner8);
+        imgBanner9 = (ImageView)findViewById(R.id.imgBanner9);
+        //imgBanner6 = (ImageView)findViewById(R.id.imgBanner6);
+        TextView tvPerRule = findViewById(R.id.tvPerRule);
+        tvPerRule.setOnClickListener(this::onPerRule);
 
         slide_in_left = AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left );
         slide_out_right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right );
@@ -141,13 +157,78 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
             }
         });
 
+
+        imgBanner1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.anysho_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.orient_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.vhc_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.modoo_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.softmill_url)));
+                startActivity(intent);
+            }
+        });
+
         vfSlider.setInAnimation(slide_in_right);
         vfSlider.setOutAnimation(slide_out_left);
 
-
-
-
         backPressCloseHandler = new BackPressCloseHandler(this);
+
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String newToken = instanceIdResult.getToken();
+                Log.e("newToken",newToken);
+                sendUserToken(newToken);
+            }
+        });
     }
 
 
@@ -184,7 +265,17 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
             //Toast.makeText(getApplicationContext(), "Backup Failed!", Toast.LENGTH_SHORT).show();
         }
     }
+    private void sendUserToken(String token){
 
+        String url = getString(R.string.mainUrl);
+        url += getString(R.string.addUserToken);
+        url += "?" + ZZangcoUtility.CHECKUSER_PARAM + "=" + myNumber;
+        url += "&" + ZZangcoUtility.USER_TOKEN + "=" + token;
+        //url = "https://www.daum.net/";
+        Log.e("zzangco","user Check ["+url+"]");
+        httpConnection = new HttpConnection(this, url,HttpConnection.URLTYPE.SEND);
+        httpConnection.start();
+    }
     public int changePermissons(File path, int mode) throws Exception {
         Class<?> fileUtils = Class.forName("android.os.FileUtils");
         Method setPermissions = fileUtils.getMethod("setPermissions",
@@ -217,7 +308,10 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
         super.onPause();
         vfSlider.stopFlipping();
     }
-
+    private void onPerRule(View v){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://immyth.egloos.com/7503625"));
+        startActivity(intent);
+    }
     @Override
     public void afterThread(String result) {
 

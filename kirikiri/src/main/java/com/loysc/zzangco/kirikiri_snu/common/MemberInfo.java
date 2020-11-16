@@ -35,6 +35,7 @@ public class MemberInfo {
     public static final String COLUMN_GRANUMBER = "grannumber";
     public static final String COLUMN_FAVORITE = "fav";
     public static final String COLUMN_ORDER = "vieworder";
+    public static final String COLUMN_HOMEPAGE = "homepage";
 
     public static final String TABLE_NAME_MEMBER = "member";
     public static final String TABLE_NAME_BUSINESS = "business";
@@ -72,14 +73,18 @@ public class MemberInfo {
         return retrunVAl;
     }
 
-    public ArrayList<MemberViewItem> getMemberList(String serachWord,String granumber,String fav,String business){
+    public ArrayList<MemberViewItem> getMemberListSearch(String serachWord,String granumber,String fav,String business){
+
+        Log.e("zzangco","Where [" + ChoSearchQuery.makeQuery(serachWord)+"]");
+
+
         ArrayList<MemberViewItem> returnVal = new ArrayList<MemberViewItem>();
 
         String[] columns = {COLUMN_ID,COLUMN_NAME,COLUMN_BIRTHDAY,COLUMN_SUNMOON,COLUMN_HANDPHONE,COLUMN_EMAIL,
-                            COLUMN_COMNAME,COLUMN_DEPT,COLUMN_POSITION,COLUMN_COMPHONE,COLUMN_COMADDRESS,
-                            COLUMN_HOMEPHONE,COLUMN_HOMEADDRESS,COLUMN_FAX,COLUMN_BUSINESS,COLUMN_BUSINAME,COLUMN_GRANUMBER,COLUMN_FAVORITE};
+                COLUMN_COMNAME,COLUMN_DEPT,COLUMN_POSITION,COLUMN_COMPHONE,COLUMN_COMADDRESS,
+                COLUMN_HOMEPHONE,COLUMN_HOMEADDRESS,COLUMN_FAX,COLUMN_BUSINESS,COLUMN_BUSINAME,COLUMN_GRANUMBER,COLUMN_FAVORITE};
 
-        String where = makeWhere(serachWord) + ") ";
+        String where = ChoSearchQuery.makeQuery(serachWord);
 
         if(null != granumber && !granumber.isEmpty() && !granumber.equals("00")){
 
@@ -91,7 +96,8 @@ public class MemberInfo {
         }
 
         if(null != business && !business.isEmpty()){
-            where += " and " +   COLUMN_BUSINESS + "='" + business + "'";
+            //where += " and " +   COLUMN_BUSINESS + "='" + business + "'";
+            where += " and " +   COLUMN_BUSINAME + " LIKE '%" + business + "%'";
         }
 
         where += " and " + COLUMN_GRANUMBER + " != '111' ";
@@ -133,6 +139,81 @@ public class MemberInfo {
                 item.setBusiname(result.getString(result.getColumnIndex(COLUMN_BUSINAME)));
                 item.setGrannumber(result.getString(result.getColumnIndex(COLUMN_GRANUMBER)));
                 item.setFav(result.getString(result.getColumnIndex(COLUMN_FAVORITE)));
+                memberPic = "s"+item.getId();
+                item.setMemberPicDrawable(ctx.getResources().getIdentifier(memberPic,"drawable",ctx.getPackageName()));
+
+                returnVal.add(item);
+
+                result.moveToNext();
+            }
+        }
+        result.close();
+        return returnVal;
+    }
+
+    public ArrayList<MemberViewItem> getMemberList(String serachWord,String granumber,String fav,String business){
+        ArrayList<MemberViewItem> returnVal = new ArrayList<MemberViewItem>();
+
+        String[] columns = {COLUMN_ID,COLUMN_NAME,COLUMN_BIRTHDAY,COLUMN_SUNMOON,COLUMN_HANDPHONE,COLUMN_EMAIL,
+                            COLUMN_COMNAME,COLUMN_DEPT,COLUMN_POSITION,COLUMN_COMPHONE,COLUMN_COMADDRESS,
+                            COLUMN_HOMEPHONE,COLUMN_HOMEADDRESS,COLUMN_FAX,COLUMN_BUSINESS,COLUMN_BUSINAME,COLUMN_GRANUMBER,COLUMN_FAVORITE,COLUMN_HOMEPAGE};
+
+        String where = makeWhere(serachWord) + ") ";
+
+        if(null != granumber && !granumber.isEmpty() && !granumber.equals("00")){
+
+            where += " and " +   COLUMN_GRANUMBER + "='" + granumber + "'";
+        }
+
+        if(null != fav && !fav.isEmpty() && fav.equals("T")){
+            where += " and " +   COLUMN_FAVORITE + "='T'";
+        }
+
+        if(null != business && !business.isEmpty()){
+            //where += " and " +   COLUMN_BUSINESS + "='" + business + "'";
+            where += " and " +   COLUMN_BUSINAME + " LIKE '%" + business + "%'";
+        }
+
+        where += " and " + COLUMN_GRANUMBER + " != '111' ";
+
+        Log.e("zzangco","Where [" + where+"]");
+        Cursor result = null;
+        if(granumber.equals("00")){
+            result = mDB.query(TABLE_NAME_MEMBER,columns,where,null,null,null,COLUMN_NAME);
+        }else{
+            result = mDB.query(TABLE_NAME_MEMBER,columns,where,null,null,null,COLUMN_GRANUMBER +","+COLUMN_ORDER + ","+ COLUMN_NAME);
+        }
+
+
+        result.moveToFirst();
+
+        int count = result.getCount();
+        if(count > 0){
+            MemberViewItem item = null;
+            String memberPic = "";
+
+            for(int i=0; i < count; i++){
+                item = new MemberViewItem();
+
+                item.setId(result.getString(result.getColumnIndex(COLUMN_ID)));
+                item.setMemberName(result.getString(result.getColumnIndex(COLUMN_NAME)));
+                item.setBirthday(result.getString(result.getColumnIndex(COLUMN_BIRTHDAY)));
+                item.setSunmoon(result.getString(result.getColumnIndex(COLUMN_SUNMOON)));
+                item.setHandphone(result.getString(result.getColumnIndex(COLUMN_HANDPHONE)));
+                item.setEmail(result.getString(result.getColumnIndex(COLUMN_EMAIL)));
+                item.setComname(result.getString(result.getColumnIndex(COLUMN_COMNAME)));
+                item.setDept(result.getString(result.getColumnIndex(COLUMN_DEPT)));
+                item.setPosition(result.getString(result.getColumnIndex(COLUMN_POSITION)));
+                item.setComphone(result.getString(result.getColumnIndex(COLUMN_COMPHONE)));
+                item.setComAddress(result.getString(result.getColumnIndex(COLUMN_COMADDRESS)));
+                item.setHomephone(result.getString(result.getColumnIndex(COLUMN_HOMEPHONE)));
+                item.setHomeAddress(result.getString(result.getColumnIndex(COLUMN_HOMEADDRESS)));
+                item.setFax(result.getString(result.getColumnIndex(COLUMN_FAX)));
+                item.setBusiness(result.getString(result.getColumnIndex(COLUMN_BUSINESS)));
+                item.setBusiname(result.getString(result.getColumnIndex(COLUMN_BUSINAME)));
+                item.setGrannumber(result.getString(result.getColumnIndex(COLUMN_GRANUMBER)));
+                item.setFav(result.getString(result.getColumnIndex(COLUMN_FAVORITE)));
+                item.setHomePage(result.getString(result.getColumnIndex(COLUMN_HOMEPAGE)));
                 memberPic = "s"+item.getId();
                 item.setMemberPicDrawable(ctx.getResources().getIdentifier(memberPic,"drawable",ctx.getPackageName()));
 

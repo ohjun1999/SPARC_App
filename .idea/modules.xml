@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SPARC_App.iml" filepath="$PROJECT_DIR$/SPARC_App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kirikiri/SPARC_App.kirikiri.iml" filepath="$PROJECT_DIR$/.idea/modules/kirikiri/SPARC_App.kirikiri.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/krikiri_sparc_library/SPARC_App.krikiri_sparc_library.iml" filepath="$PROJECT_DIR$/.idea/modules/krikiri_sparc_library/SPARC_App.krikiri_sparc_library.iml" />
+    </modules>
+  </component>
+</project>

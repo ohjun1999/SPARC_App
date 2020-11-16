@@ -4,9 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,8 +58,19 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
 
     @Override
     public void onBindViewHolder(MemberViewHolder holder, final int position) {
+
+
         holder.imgMemberPic.setImageResource(mItems.get(position).getMemberPicDrawable());
-        holder.tvMemberName.setText(mItems.get(position).getMemberName() + "(" + mItems.get(position).getGrannumber() + ")");
+
+        if(null == holder.imgMemberPic.getDrawable()){
+            holder.imgMemberPic.setImageResource(R.drawable.emptyuser);
+        }
+        if("99".equals(mItems.get(position).getGrannumber())){
+            holder.tvMemberName.setText(mItems.get(position).getMemberName() + "(교수)");
+        }else{
+            holder.tvMemberName.setText(mItems.get(position).getMemberName() + "(" + mItems.get(position).getGrannumber() + ")");
+        }
+
         holder.tvBirthday.setText(mItems.get(position).getBirthday() + "[" + mItems.get(position).getSunmoon()+"]");
         holder.tvDept.setText(mItems.get(position).getDept());
         holder.tvPosition.setText(mItems.get(position).getPosition());
@@ -119,7 +131,25 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberViewHolder> {
             }
         });
 
+        if(null != mItems.get(position).getHomePage() && !"".equals(mItems.get(position).getHomePage())){
+            holder.trHomepage.setVisibility(View.VISIBLE);
+            holder.tvHomepage.setText(mItems.get(position).getHomePage());
+            holder.tvHomepage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent homepage = new Intent(Intent.ACTION_VIEW);
+                    Uri u = Uri.parse("http://"+mItems.get(position).getHomePage());
+                    homepage.setData(u);
+                    mCom.startActivity(homepage);
+                }
+            });
+        }else{
+            holder.trHomepage.setVisibility(View.GONE);
+        }
+
         holder.tvEmail.setText(mItems.get(position).getEmail());
+
+        holder.tvBusinessName.setText(mItems.get(position).getBusiname());
 
 
         setAnimation(holder.member_card,position);

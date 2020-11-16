@@ -1,0 +1,66 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context="com.zzangco.vallejocolorchart.activity.MenuActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+
+            android:orientation="vertical"
+            tools:ignore="UselessParent"
+            android:gravity="center">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/vallejo"
+                android:id="@+id/imgBtVallejo"
+                tools:layout_width="match_parent" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/tamiya"
+                android:id="@+id/imgBtTamiya"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="30dp" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/testors"
+                android:id="@+id/imgBtTestors"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="30dp" />
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/testors"
+                android:id="@+id/imgBtTest"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="30dp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

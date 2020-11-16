@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "656127495526",
+    "firebase_url": "https://moilsurok.firebaseio.com",
+    "project_id": "moilsurok",
+    "storage_bucket": "moilsurok.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656127495526:android:0b835611e286d431",
+        "android_client_info": {
+          "package_name": "com.loysc.zzangco.kirikiri_snu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656127495526-7qkjciab57l58frnk4k0mb08u9dat6h5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyxB4jtuSU7HV3_WC-S1eAvsuclltfEqY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

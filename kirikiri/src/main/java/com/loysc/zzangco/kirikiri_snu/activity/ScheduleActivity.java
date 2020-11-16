@@ -2,9 +2,11 @@ package com.loysc.zzangco.kirikiri_snu.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
@@ -13,11 +15,14 @@ import com.loysc.zzangco.kirikiri_snu.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import com.loysc.zzangco.kirikiri_snu.common.ScheduleInfo;
 import com.loysc.zzangco.kirikiri_snu.common.ScheduleItem;
+import com.loysc.zzangco.kirikiri_snu.common.WeekendFinder;
+import com.loysc.zzangco.kirikiri_snu.common.ZZangcoUtility;
 
 public class ScheduleActivity extends AppCompatActivity {
     //private MaterialCalendarView calendarView;
@@ -28,6 +33,8 @@ public class ScheduleActivity extends AppCompatActivity {
     private List<EventDay> events = new ArrayList<>();
     private ScheduleInfo scheduleInfo;
     HashMap<String,String> scheduleMap = new HashMap<String,String>();
+
+    private ArrayList<Calendar> weekendList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +65,15 @@ public class ScheduleActivity extends AppCompatActivity {
 
             }
         });
+
+
+        weekendList = new WeekendFinder(ZZangcoUtility.getCurrentYear()-1).findWeekends();
+        weekendList.addAll(new WeekendFinder(ZZangcoUtility.getCurrentYear()).findWeekends());
+        weekendList.addAll(new WeekendFinder(ZZangcoUtility.getCurrentYear()+1).findWeekends());
+
+        //calendarView.setDisabledDays(weekendList);
+        calendarView.setHighlightedDays(weekendList);
+
       /* try{
            ViewGroup vg = (ViewGroup)calendarView2.getChildAt(0);
            View child = vg.getChildAt(0);
@@ -76,6 +92,8 @@ public class ScheduleActivity extends AppCompatActivity {
         settingSchedule();
         MainActivity.instance.asyncDialog.dismiss();
     }
+
+
 
     private String makeYYYYMMDD(Calendar tmpCal){
         String yyyymmdd = "";
@@ -162,6 +180,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
         scheduleInfo.openc();
         List<ScheduleItem> list = scheduleInfo.getScheduleList();
+
 
         for(ScheduleItem item : list){
             scheduleList.add(item);

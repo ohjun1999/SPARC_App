@@ -1,1 +1,1 @@
-include ':kirikiri'
+include ':kirikiri', ':krikiri_sparc_library'

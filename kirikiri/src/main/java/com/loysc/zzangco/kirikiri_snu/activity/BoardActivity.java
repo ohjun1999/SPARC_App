@@ -1,17 +1,22 @@
 package com.loysc.zzangco.kirikiri_snu.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import com.loysc.zzangco.kirikiri_snu.R;
 
 import java.util.ArrayList;
@@ -21,7 +26,7 @@ import com.loysc.zzangco.kirikiri_snu.common.BoardAdapter;
 import com.loysc.zzangco.kirikiri_snu.common.BoardInfo;
 import com.loysc.zzangco.kirikiri_snu.common.BoardItem;
 
-public class BoardActivity extends AppCompatActivity  {
+public class BoardActivity extends AppCompatActivity {
 
     private RecyclerView rcAlarList;
     private ArrayList<BoardItem> items = new ArrayList<BoardItem>();
@@ -30,6 +35,12 @@ public class BoardActivity extends AppCompatActivity  {
     private RecyclerView.LayoutManager layoutManager;
     private String noReadView = "A";
     private CardView olc_manual;
+
+    private ViewFlipper vfSlider;
+    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner5,imgBanner7,imgBanner8,imgBanner9;
+
+    private Animation slide_out_left,slide_in_right;
+    private Animation slide_in_left,slide_out_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,15 @@ public class BoardActivity extends AppCompatActivity  {
 
         olc_manual = (CardView)findViewById(R.id.olc_manual);
 
+        vfSlider = (ViewFlipper)findViewById(R.id.vfSlider);
+        imgBanner1 = (ImageView)findViewById(R.id.imgBanner1);
+        imgBanner2 = (ImageView)findViewById(R.id.imgBanner2);
+        imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
+        imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
+        imgBanner7 = (ImageView)findViewById(R.id.imgBanner7);
+        imgBanner8 = (ImageView)findViewById(R.id.imgBanner8);
+        imgBanner9 = (ImageView)findViewById(R.id.imgBanner9);
+
         olc_manual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,9 +77,81 @@ public class BoardActivity extends AppCompatActivity  {
         });
 
 
+        imgBanner1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.anysho_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
+                startActivity(intent);
+            }
+        });
+
+        imgBanner5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.vhc_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.modoo_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.softmill_url)));
+                startActivity(intent);
+            }
+        });
+
+        slide_in_left = AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left );
+        slide_out_right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right );
+
+        slide_out_left = AnimationUtils.loadAnimation(this,R.anim.ani_translate_l );
+        slide_in_right = AnimationUtils.loadAnimation(this,R.anim.ani_translate_r );
+
+        vfSlider.setInAnimation(slide_in_right);
+        vfSlider.setOutAnimation(slide_out_left);
+
+
         getSupportActionBar().setTitle("알림");
         addItems();
         MainActivity.instance.asyncDialog.dismiss();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //int firstViewInt = ZZangcoUtility.randomRange(0,2);
+
+        vfSlider.setDisplayedChild(0);
+        vfSlider.startFlipping();
+
+        vfSlider.setFlipInterval(2500);
     }
 
     @Override

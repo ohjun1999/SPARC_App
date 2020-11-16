@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="?attr/colorPrimary"
+        android:id="@+id/color_card">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/xf11"
+                android:id="@+id/imageView2"
+                android:layout_weight="0.3"
+                android:layout_marginLeft="10dp"
+                android:transitionName="img"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:layout_weight="0.14"
+                android:layout_marginTop="10dp"
+                android:id="@+id/color_info"
+                android:layout_marginBottom="10dp"
+                android:transitionName="info">
+
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:text="Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView4"
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView9"
+                        android:text=" : "
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <TextView
+                        android:text="Liquid _ Green Gold (Metallic)"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvColorName"
+                        android:textSize="20sp"
+                        android:maxLength="15"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:text="Code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView6"
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView10"
+                        android:text=" : "
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <TextView
+                        android:text="70951"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvColorCode"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:text="Order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView8"
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView11"
+                        android:text=" : "
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:text="001"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvColorOrder"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:text="Stock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView12"
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13"
+                        android:text=" : "
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+
+                        <TextView
+                            android:layout_height="match_parent"
+                            android:inputType="textPersonName"
+                            android:text="0"
+                            android:ems="10"
+                            android:textStyle="normal|bold"
+                            android:id="@+id/tvStock"
+                            android:layout_width="80dp"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryDark" />
+
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

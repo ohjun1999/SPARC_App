@@ -1,5 +1,7 @@
 package com.loysc.zzangco.kirikiri_snu.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,12 +9,26 @@ import java.io.Serializable;
  */
 
 public class ScheduleVo implements Serializable {
+
+    @SerializedName("id")
     private String id;
+
+    @SerializedName("level")
     private String level;
+
+    @SerializedName("type")
     private String type;
+
+    @SerializedName("cycle")
     private String cycle;
+
+    @SerializedName("annDate")
     private String annDate;
+
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("content")
     private String content;
 
     public String getId() {

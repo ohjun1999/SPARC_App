@@ -1,5 +1,7 @@
 package com.loysc.zzangco.kirikiri_snu.vo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,12 +9,26 @@ import java.io.Serializable;
  */
 
 public class BoardVo implements Serializable {
+
+    @SerializedName("id")
     private String id;
+
+    @SerializedName("title")
     private String title;
+
+    @SerializedName("content")
     private String content;
+
+    @SerializedName("important")
     private String important;
+
+    @SerializedName("createday")
     private String createday;
+
+    @SerializedName("currentPage")
     private String currentPage;
+
+    @SerializedName("totalCount")
     private String totalCount;
 
     public String getId() {

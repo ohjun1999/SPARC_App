@@ -13,7 +13,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
     private static DataBase instance;
-    public static String dbName = "olck.db";
+    public static String dbName = "sparc08.db";
     private static int dbVersion = 2;
 
     private Context mContext;

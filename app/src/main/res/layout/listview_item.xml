@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/vmc001"
+        android:id="@+id/imgVColor"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView9"
+                    android:text=" : "
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:text="Liquid _ Green Gold (Metallic)"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvColorName"
+                    android:textSize="20sp"
+                    android:maxLength="15"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView10"
+                    android:text=" : "
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:text="70951"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvColorCode"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="ColorOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView8"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView11"
+                    android:text=" : "
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:text="001"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvColorOrder"
+                    android:textSize="20sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView12"
+                    android:textStyle="normal|bold"
+                    android:textSize="20sp" />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13"
+                        android:text=" : "
+                        android:textStyle="normal|bold"
+                        android:textSize="20sp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="27dp"
+                        app:srcCompat="@drawable/arrow_blue_left"
+                        android:id="@+id/imgBMiner"
+                        android:scaleType="centerCrop"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName"
+                        android:text="0"
+                        android:ems="10"
+                        android:id="@+id/tvStock"
+                        android:layout_width="80dp"
+                        android:gravity="center" />
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="27dp"
+                        app:srcCompat="@drawable/arrow_blue_right"
+                        android:id="@+id/imgBPlus"
+                        android:scaleType="centerCrop"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

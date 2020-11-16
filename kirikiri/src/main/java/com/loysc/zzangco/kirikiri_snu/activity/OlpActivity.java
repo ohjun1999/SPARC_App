@@ -3,26 +3,31 @@ package com.loysc.zzangco.kirikiri_snu.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
+import com.google.android.material.navigation.NavigationView;
 import com.loysc.zzangco.kirikiri_snu.R;
 
 import java.util.ArrayList;
 
-import com.loysc.zzangco.kirikiri_snu.common.MemberAdapter;
 import com.loysc.zzangco.kirikiri_snu.common.MemberViewItem;
 
 public class OlpActivity extends AppCompatActivity
@@ -32,22 +37,31 @@ public class OlpActivity extends AppCompatActivity
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<MemberViewItem> items = new ArrayList<MemberViewItem>();
 
-    private MemberAdapter adapter;
+    //private MemberAdapter adapter;
     private String granNumber = "00";
 
     private LinearLayout llOlpIntro;
     private LinearLayout llOlpCur;
     private LinearLayout llOlpOffice;
+    private LinearLayout llOlpRec;
     private WebView webViewOlpMap;
 
     private TextView olpOfficePhone,olpOfficeEmail,olpHomepage;
+    private TextView olpOfficePhoneA,olpOfficePhoneA2,olpOfficeEmailA,olpHomepageA;
+    private TextView tvManager1,tvManager2;
+
+    private ViewFlipper vfSlider;
+    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner5,imgBanner7,imgBanner8,imgBanner9;
+
+    private Animation slide_out_left,slide_in_right;
+    private Animation slide_in_left,slide_out_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_olp_list);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        adapter = new MemberAdapter(this,items);
+        //adapter = new MemberAdapter(this,items);
 
         layoutManager = new LinearLayoutManager(this);
 
@@ -57,6 +71,7 @@ public class OlpActivity extends AppCompatActivity
         llOlpIntro = (LinearLayout)findViewById(R.id.llOlpIntro);
         llOlpCur = (LinearLayout)findViewById(R.id.llOlpCur);
         llOlpOffice = (LinearLayout)findViewById(R.id.llOlpOffice);
+        llOlpRec = (LinearLayout)findViewById(R.id.llOlpRec);
 
         webViewOlpMap = (WebView)findViewById(R.id.webViewOlpMap);
         webViewOlpMap.loadUrl("file:///android_asset/olpMap.html");
@@ -78,11 +93,48 @@ public class OlpActivity extends AppCompatActivity
         llOlpOffice.setVisibility(View.GONE);
 
         olpOfficePhone = (TextView)findViewById(R.id.olpOfficePhone);
+        tvManager1 = (TextView)findViewById(R.id.tvManager1);
+        tvManager2 = (TextView)findViewById(R.id.tvManager2);
+
+        tvManager1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String olp_office_phone = getString(R.string.olp_manger1);
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+olp_office_phone));
+                startActivity(intent);
+            }
+        });
+
+        tvManager2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String olp_office_phone = getString(R.string.olp_manger2);
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+olp_office_phone));
+                startActivity(intent);
+            }
+        });
 
         olpOfficePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 callPhone();
+            }
+        });
+
+        olpOfficePhoneA = (TextView)findViewById(R.id.olpOfficePhoneA);
+
+        olpOfficePhoneA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callPhone();
+            }
+        });
+
+        olpOfficePhoneA2 = (TextView)findViewById(R.id.olpOfficePhoneA2);
+        olpOfficePhoneA2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callPhone2();
             }
         });
 
@@ -105,14 +157,101 @@ public class OlpActivity extends AppCompatActivity
                 startActivity(homepage);
             }
         });
+        olpHomepageA = (TextView)findViewById(R.id.olpHomepageA);
+        olpHomepageA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homepage = new Intent(Intent.ACTION_VIEW);
+                Uri u = Uri.parse(getString(R.string.olp_office_homepage));
+                homepage.setData(u);
+                startActivity(homepage);
+            }
+        });
 
-        getSupportActionBar().setTitle("OLP란?");
+        getSupportActionBar().setTitle("SPARC란?");
         MainActivity.instance.asyncDialog.dismiss();
+
+        vfSlider = (ViewFlipper)findViewById(R.id.vfSlider);
+        imgBanner1 = (ImageView)findViewById(R.id.imgBanner1);
+        imgBanner2 = (ImageView)findViewById(R.id.imgBanner2);
+        imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
+        imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
+        imgBanner7 = (ImageView)findViewById(R.id.imgBanner7);
+        imgBanner8 = (ImageView)findViewById(R.id.imgBanner8);
+        imgBanner9 = (ImageView)findViewById(R.id.imgBanner9);
+
+        imgBanner1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.anysho_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
+                startActivity(intent);
+            }
+        });
+
+        imgBanner5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.vhc_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.modoo_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.softmill_url)));
+                startActivity(intent);
+            }
+        });
+
+        slide_in_left = AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left );
+        slide_out_right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right );
+
+        slide_out_left = AnimationUtils.loadAnimation(this,R.anim.ani_translate_l );
+        slide_in_right = AnimationUtils.loadAnimation(this,R.anim.ani_translate_r );
+
+        vfSlider.setInAnimation(slide_in_right);
+        vfSlider.setOutAnimation(slide_out_left);
     }
 
     private void callPhone(){
         //phoneNumber = "02-705-8017";
         String olp_office_phone = getString(R.string.olp_office_phone);
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+olp_office_phone));
+        startActivity(intent);
+
+    }
+
+    private void callPhone2(){
+        //phoneNumber = "02-705-8017";
+        String olp_office_phone = getString(R.string.olp_office_phone2);
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+olp_office_phone));
         startActivity(intent);
 
@@ -129,6 +268,17 @@ public class OlpActivity extends AppCompatActivity
         email.putExtra(Intent.EXTRA_EMAIL, address);
         startActivity(email);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //int firstViewInt = ZZangcoUtility.randomRange(0,2);
+
+        vfSlider.setDisplayedChild(0);
+        vfSlider.startFlipping();
+
+        vfSlider.setFlipInterval(2500);
     }
 
     @Override
@@ -174,22 +324,30 @@ public class OlpActivity extends AppCompatActivity
             llOlpIntro.setVisibility(View.VISIBLE);
             llOlpCur.setVisibility(View.GONE);
             llOlpOffice.setVisibility(View.GONE);
-
-            toolbar.setTitle("OLP란?");
+            llOlpRec.setVisibility(View.GONE);
+            toolbar.setTitle("SPARC란?");
         } else if (id == R.id.olpCur) {
 
             llOlpIntro.setVisibility(View.GONE);
             llOlpCur.setVisibility(View.VISIBLE);
             llOlpOffice.setVisibility(View.GONE);
+            llOlpRec.setVisibility(View.GONE);
 
-            toolbar.setTitle("커리큘럼");
+            toolbar.setTitle("과정운영개요");
+        } else if (id == R.id.olpRec) {
+
+            llOlpIntro.setVisibility(View.GONE);
+            llOlpCur.setVisibility(View.GONE);
+            llOlpOffice.setVisibility(View.GONE);
+            llOlpRec.setVisibility(View.VISIBLE);
+            toolbar.setTitle("입학안내");
         } else if (id == R.id.olpOffice) {
 
             llOlpIntro.setVisibility(View.GONE);
             llOlpCur.setVisibility(View.GONE);
             llOlpOffice.setVisibility(View.VISIBLE);
-
-            toolbar.setTitle("OLP 사무국 안내");
+            llOlpRec.setVisibility(View.GONE);
+            toolbar.setTitle("행정실 소개");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
