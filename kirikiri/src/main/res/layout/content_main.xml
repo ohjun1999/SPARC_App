@@ -218,26 +218,6 @@
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/banner5" />
 
-            <ImageView
-                android:id="@+id/imgBanner7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/banner7" />
-
-            <ImageView
-                android:id="@+id/imgBanner8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/banner8" />
-
-            <ImageView
-                android:id="@+id/imgBanner9"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/banner9" />
         </ViewFlipper>
         <TextView
             android:id="@+id/tvPerRule"
