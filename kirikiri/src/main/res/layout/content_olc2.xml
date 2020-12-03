@@ -3168,7 +3168,12 @@
                 android:layout_height="wrap_content"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/banners3" />
-
+            <ImageView
+                android:id="@+id/imgBanner4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/banners4" />
             <ImageView
                 android:id="@+id/imgBanner5"
                 android:layout_width="match_parent"
@@ -3176,26 +3181,6 @@
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/banners5" />
 
-            <ImageView
-                android:id="@+id/imgBanner7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/banners7" />
-
-            <ImageView
-                android:id="@+id/imgBanner8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/banners8" />
-
-            <ImageView
-                android:id="@+id/imgBanner9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/banners9" />
         </ViewFlipper>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
