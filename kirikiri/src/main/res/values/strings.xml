@@ -182,11 +182,8 @@
     <string name="olpRecMember3">-입학지원서(소정양식)\n-사업자등록증 또는 재직증명서(1부)\n-회사 및 기관안내 책자(※제출된 서류는 반환하지 않습니다.)</string>
     <string name="default_notification_channel_id">모일수록</string>
     <string name="gjec_url">http://www.gjec.co.kr/main/main.html</string>
-    <string name="anysho_url">https://www.anyshomelife.com</string>
+    <string name="sftc_url">http://www.sftc.co.kr</string>
     <string name="inettv_url">http://www.inettv.tv</string>
     <string name="orient_url">http://www.orient.co.kr/common/main.asp</string>
-    <string name="ysk_url">http://ysk.co.kr</string>
-    <string name="vhc_url">http://www.vhc.co.kr/sub/main.asp</string>
-    <string name="modoo_url">https://cnbcosmetic.modoo.at</string>
-    <string name="softmill_url">http://www.softmill.co.kr/project/dhsm</string>
+    <string name="storant_url">http://www.storant.co.kr</string>
 </resources>
