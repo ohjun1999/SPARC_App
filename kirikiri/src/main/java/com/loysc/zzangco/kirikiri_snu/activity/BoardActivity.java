@@ -37,7 +37,7 @@ public class BoardActivity extends AppCompatActivity {
     private CardView olc_manual;
 
     private ViewFlipper vfSlider;
-    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner5,imgBanner7,imgBanner8,imgBanner9;
+    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner4,imgBanner5;
 
     private Animation slide_out_left,slide_in_right;
     private Animation slide_in_left,slide_out_right;
@@ -63,10 +63,8 @@ public class BoardActivity extends AppCompatActivity {
         imgBanner1 = (ImageView)findViewById(R.id.imgBanner1);
         imgBanner2 = (ImageView)findViewById(R.id.imgBanner2);
         imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
+        imgBanner4 = (ImageView)findViewById(R.id.imgBanner4);
         imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
-        imgBanner7 = (ImageView)findViewById(R.id.imgBanner7);
-        imgBanner8 = (ImageView)findViewById(R.id.imgBanner8);
-        imgBanner9 = (ImageView)findViewById(R.id.imgBanner9);
 
         olc_manual.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,50 +78,35 @@ public class BoardActivity extends AppCompatActivity {
         imgBanner1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.sftc_url)));
                 startActivity(intent);
             }
         });
         imgBanner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.anysho_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.storant_url)));
                 startActivity(intent);
             }
         });
         imgBanner3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.orient_url)));
+                startActivity(intent);
+            }
+        });
+        imgBanner4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
                 startActivity(intent);
             }
         });
-
         imgBanner5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
-                startActivity(intent);
-            }
-        });
-        imgBanner7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.vhc_url)));
-                startActivity(intent);
-            }
-        });
-        imgBanner8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.modoo_url)));
-                startActivity(intent);
-            }
-        });
-        imgBanner9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.softmill_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
                 startActivity(intent);
             }
         });

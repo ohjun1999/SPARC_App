@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
     private ImageView imgOLCA,imgAlarm,imgSchedule,imgOLCF,imgOLCS,imgBand;
     private TextView tvHome,tvReload,tvConnect,tvEnd;
     private ViewFlipper vfSlider;
-    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner4,imgBanner5,imgBanner7,imgBanner8,imgBanner9;
+    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner4,imgBanner5;
 
     private HttpConnection httpConnection;
     private HttpConnectionNoHandler httpConnectionNoHandler;
@@ -85,9 +85,6 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
         imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
         imgBanner4 = (ImageView)findViewById(R.id.imgBanner4);
         imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
-        imgBanner7 = (ImageView)findViewById(R.id.imgBanner7);
-        imgBanner8 = (ImageView)findViewById(R.id.imgBanner8);
-        imgBanner9 = (ImageView)findViewById(R.id.imgBanner9);
         //imgBanner6 = (ImageView)findViewById(R.id.imgBanner6);
         TextView tvPerRule = findViewById(R.id.tvPerRule);
         tvPerRule.setOnClickListener(this::onPerRule);
@@ -161,59 +158,39 @@ public class MainActivity extends AppCompatActivity implements HttpConnectionThr
         imgBanner1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.sftc_url)));
                 startActivity(intent);
             }
         });
         imgBanner2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.anysho_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.storant_url)));
                 startActivity(intent);
             }
         });
         imgBanner3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.orient_url)));
                 startActivity(intent);
             }
         });
         imgBanner4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.orient_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.inettv_url)));
                 startActivity(intent);
             }
         });
         imgBanner5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.gjec_url)));
                 startActivity(intent);
             }
         });
-        imgBanner7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.vhc_url)));
-                startActivity(intent);
-            }
-        });
-        imgBanner8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.modoo_url)));
-                startActivity(intent);
-            }
-        });
-        imgBanner9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.softmill_url)));
-                startActivity(intent);
-            }
-        });
+
 
         vfSlider.setInAnimation(slide_in_right);
         vfSlider.setOutAnimation(slide_out_left);
