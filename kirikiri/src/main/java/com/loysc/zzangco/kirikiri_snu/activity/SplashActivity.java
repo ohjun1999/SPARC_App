@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -24,13 +23,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.google.android.play.core.appupdate.AppUpdateInfo;
-import com.google.android.play.core.appupdate.AppUpdateManager;
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
-import com.google.android.play.core.install.model.AppUpdateType;
-import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.OnSuccessListener;
-import com.google.android.play.core.tasks.Task;
 import com.google.gson.Gson;
 import com.loysc.zzangco.kirikiri_snu.R;
 
@@ -62,7 +54,6 @@ import com.loysc.zzangco.kirikiri_snu.vo.ScheduleVo;
 
 import static com.loysc.zzangco.kirikiri_snu.activity.MainActivity.USER_PHONE_NUM;
 
-
 public class SplashActivity extends AppCompatActivity implements HttpConnectionThread {
     private ImageView imgSplash;
 
@@ -78,12 +69,8 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
     private ScheduleInfo scheduleInfo;
 
-    private final int MY_REQUEST_CODE = 100;
-    private AppUpdateManager mAppUpdateManager;
-
     private HttpConnection httpConnection;
     private NonLeakHandler handler = new NonLeakHandler(this);
-
 
     String myNumber = null;
 
@@ -109,12 +96,9 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
                 //startActivity(intent,option.toBundle());
                 act.startActivity(intent);
                 act.finish();
-
-
             }
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,12 +107,10 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         startWork();
         imgSplash = (ImageView) findViewById(R.id.imgSplash);
 
-
         animationTL = AnimationUtils.loadAnimation(this, R.anim.ani_translate_r);
 
         imgSplash.setVisibility(View.VISIBLE);
         imgSplash.startAnimation(animationTL);
-
 
         //Glide.with(this).load(R.drawable.kirikiri).into(imgSplash);
 
@@ -140,41 +122,6 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         userConfirm = checkinfo.getCheck();
         checkinfo.close();
 
-        mAppUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
-
-// 업데이트 사용 가능 상태인지 체크
-        Task<AppUpdateInfo> appUpdateInfoTask = mAppUpdateManager.getAppUpdateInfo();
-
-// 사용가능 체크 리스너를 달아준다
-        appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            public void onSuccess(AppUpdateInfo appUpdateInfo) {
-                if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                        && // 유연한 업데이트 사용 시 (AppUpdateType.FLEXIBLE) 사용
-                        appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
-
-                    try {
-                        mAppUpdateManager.startUpdateFlowForResult(
-                                appUpdateInfo,
-                                // 유연한 업데이트 사용 시 (AppUpdateType.FLEXIBLE) 사용
-                                AppUpdateType.IMMEDIATE,
-                                // 현재 Activity
-                                SplashActivity.this,
-                                // 전역변수로 선언해준 Code
-                                MY_REQUEST_CODE);
-                    } catch (IntentSender.SendIntentException e) {
-                        Log.e("AppUpdater", "AppUpdateManager Error", e);
-                        e.printStackTrace();
-                    }
-
-                    // 업데이트가 사용 가능한 상태 (업데이트 있음) -> 이곳에서 업데이트를 요청해주자
-                } else {
-
-
-                    // 업데이트가 사용 가능하지 않은 상태(업데이트 없음) -> 다음 액티비티로 넘어가도록
-                }
-            }
-        });
-
 
         if (userConfirm.equals("Y")) {
             goProgress();
@@ -185,42 +132,10 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        mAppUpdateManager.getAppUpdateInfo().addOnSuccessListener(
-                new OnSuccessListener<AppUpdateInfo>() {
-                    @Override
-                    public void onSuccess(AppUpdateInfo appUpdateInfo) {
-                        if (appUpdateInfo.updateAvailability()
-                                == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
-                            // 인 앱 업데이트가 이미 실행중이었다면 계속해서 진행하도록
-                            try {
-                                mAppUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.IMMEDIATE, SplashActivity.this, MY_REQUEST_CODE);
-                            } catch (IntentSender.SendIntentException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
-    }
-
-
-
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == MY_REQUEST_CODE) {
-            if (resultCode != RESULT_OK) {
-                Log.d("AppUpdate", "Update flow failed! Result code: " + resultCode); // 로그로 코드 확인
-                finishAffinity(); // 앱 종료
-            }
-        }
         if(resultCode == RESULT_OK) {
-
             if (requestCode == USER_CONFIRM) {
-
                 boolean returnValue = data.getBooleanExtra(IS_OK, false);
                 if (returnValue) {
                     getCheckDatastore();
@@ -236,7 +151,6 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
                     checkinfo.close();
 
                     finish();
-
                 }
 
             }
@@ -265,8 +179,6 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
         }
 
-
-
         if(checkPhoneNumber(myNumber)){
             //handler.sendEmptyMessageDelayed(0,3000);
             String url = getString(R.string.mainUrl);
@@ -292,9 +204,6 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
         }
     }
-
-
-
     private void permissonCheckFu(){
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
