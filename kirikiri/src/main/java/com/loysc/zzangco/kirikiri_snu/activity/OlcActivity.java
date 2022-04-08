@@ -94,7 +94,7 @@ public class OlcActivity extends AppCompatActivity
             }
         });
 
-        getSupportActionBar().setTitle("회장단소개");
+        getSupportActionBar().setTitle("동창회 임원단");
         MainActivity.instance.asyncDialog.dismiss();
 
         vfSlider = (ViewFlipper)findViewById(R.id.vfSlider);
@@ -237,7 +237,7 @@ public class OlcActivity extends AppCompatActivity
             llOlcLaw.setVisibility(View.GONE);
             llOlcStaff.setVisibility(View.GONE);
 
-            toolbar.setTitle("회장단소개");
+            toolbar.setTitle("동창회 임원단");
         } else if (id == R.id.olcChart) {
 
             llOlcIntro.setVisibility(View.GONE);
@@ -246,7 +246,7 @@ public class OlcActivity extends AppCompatActivity
             llOlcLaw.setVisibility(View.GONE);
             llOlcStaff.setVisibility(View.GONE);
 
-            toolbar.setTitle("조직도");
+            toolbar.setTitle("동창회 운영위원회");
         /*} else if (id == R.id.olcHistory) {
 
             llOlcIntro.setVisibility(View.GONE);

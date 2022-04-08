@@ -292,15 +292,16 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        int positon = data.getIntExtra(DetailInfoActivity.POSITION,0);
+        super.onActivityResult(requestCode, resultCode, data);
+        int positon = data.getIntExtra(DetailInfoActivity.POSITION, 0);
 
-        if(favorite.equals("T")){
+        if (favorite.equals("T")) {
             adapter.remove(positon);
-        }else{
+        } else {
             memberInfo = getDatastore();
             MemberViewItem item = memberInfo.getMemberInfo(items.get(positon).getId());
 
-            items.set(positon,item);
+            items.set(positon, item);
 
             adapter.notifyItemChanged(positon);
 
@@ -484,7 +485,15 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.thirtyFifth_member3) {
             addListItem(searchWord,"37",favorite,business);
             toolbar.setTitle("37기");
-        } else if (id == R.id.professor_member) {
+        }else if (id == R.id.thirtyFifth_member4) {
+            addListItem(searchWord,"38",favorite,business);
+            toolbar.setTitle("38기");
+        }else if (id == R.id.thirtyFifth_member5) {
+            addListItem(searchWord, "39", favorite, business);
+            toolbar.setTitle("39기");
+        }
+
+        else if (id == R.id.professor_member) {
             addListItem(searchWord, "99", favorite, business);
             toolbar.setTitle("교수진");
         }else if(id == R.id.all_member) {

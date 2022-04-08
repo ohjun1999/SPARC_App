@@ -7,13 +7,11 @@
         android:id="@+id/gruNumberGroup"
         android:checkableBehavior="single"
         android:enabled="true">
-        android:enabled="true">
 
         <item
             android:id="@+id/all_member_title"
             android:checked="true"
-
-            android:title="전체/기수별/직군별" ></item>
+            android:title="전체/기수별/직군별" />
         <item
             android:id="@+id/all_member"
             android:checkable="true"
@@ -201,11 +199,22 @@
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="37기" />
         <item
+            android:id="@+id/thirtyFifth_member4"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="38기" />
+
+        <item
+            android:id="@+id/thirtyFifth_member5"
+            android:checkable="true"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="39기" />
+
+        <item
             android:id="@+id/professor_member"
             android:checkable="true"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="교수진" />
-        <group />
     </group>
     <group
         android:id="@+id/busGroup"

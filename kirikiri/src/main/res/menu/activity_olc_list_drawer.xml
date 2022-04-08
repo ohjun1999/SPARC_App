@@ -10,11 +10,11 @@
         <item
             android:id="@+id/olc"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="회장단소개" />
+            android:title="동창회 임원단" />
         <item
             android:id="@+id/olcChart"
             android:icon="@drawable/ic_account_circle_black_24dp"
-            android:title="조직도" />
+            android:title="동창회 운영위원회" />
         <item
             android:id="@+id/olcLaw"
             android:icon="@drawable/ic_account_circle_black_24dp"
