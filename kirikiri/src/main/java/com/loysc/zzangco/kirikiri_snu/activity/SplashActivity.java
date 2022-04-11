@@ -170,10 +170,10 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
             TelephonyManager mgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             if (mgr != null) {
-                myNumber = mgr.getLine1Number();
-                myNumber = myNumber.replace("+82", "0");
-                myNumber = myNumber.replace("-", "");
-                myNumber = myNumber.trim();
+                // myNumber = mgr.getLine1Number();
+             //myNumber = myNumber.replace("+82", "0");
+             //   myNumber = myNumber.replace("-", "");
+             //   myNumber = myNumber.trim();
             }
 
 
