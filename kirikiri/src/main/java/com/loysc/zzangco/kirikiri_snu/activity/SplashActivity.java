@@ -226,11 +226,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
             }
         }
-    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == USER_CONFIRM) {
                 boolean returnValue = data.getBooleanExtra(IS_OK, false);
