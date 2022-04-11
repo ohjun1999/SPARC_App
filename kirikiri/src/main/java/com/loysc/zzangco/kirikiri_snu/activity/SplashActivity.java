@@ -31,7 +31,6 @@ import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.InstallState;
-import com.google.android.play.core.install.InstallStateUpdatedListener;
 import com.google.android.play.core.install.model.ActivityResult;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.InstallStatus;
@@ -227,8 +226,11 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
             }
         }
+    }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == USER_CONFIRM) {
                 boolean returnValue = data.getBooleanExtra(IS_OK, false);
@@ -252,14 +254,6 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         }
     }
 
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            appUpdateManager.unregisterListener((InstallStateUpdatedListener) this);
-        }catch (RuntimeException e){
-
-        }
-    }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -274,10 +268,10 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
             TelephonyManager mgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             if (mgr != null) {
-            //    myNumber = mgr.getLine1Number();
-            //    myNumber = myNumber.replace("+82", "0");
-            //    myNumber = myNumber.replace("-", "");
-            //    myNumber = myNumber.trim();
+                myNumber = mgr.getLine1Number();
+                myNumber = myNumber.replace("+82", "0");
+                myNumber = myNumber.replace("-", "");
+                myNumber = myNumber.trim();
             }
 
 
