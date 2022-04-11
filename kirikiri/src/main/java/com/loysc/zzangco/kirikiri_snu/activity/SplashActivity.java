@@ -2,8 +2,10 @@ package com.loysc.zzangco.kirikiri_snu.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -22,7 +25,18 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.InstallState;
+import com.google.android.play.core.install.model.ActivityResult;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.InstallStatus;
+import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.android.play.core.tasks.OnSuccessListener;
+import com.google.android.play.core.tasks.Task;
 import com.google.gson.Gson;
 import com.loysc.zzangco.kirikiri_snu.R;
 
@@ -52,9 +66,15 @@ import com.loysc.zzangco.kirikiri_snu.vo.MemberVo;
 import com.loysc.zzangco.kirikiri_snu.vo.ResultVo;
 import com.loysc.zzangco.kirikiri_snu.vo.ScheduleVo;
 
+import static com.google.android.play.core.install.model.UpdateAvailability.UPDATE_AVAILABLE;
 import static com.loysc.zzangco.kirikiri_snu.activity.MainActivity.USER_PHONE_NUM;
 
 public class SplashActivity extends AppCompatActivity implements HttpConnectionThread {
+
+    private AppUpdateManager appUpdateManager;
+
+    private static final int MY_REQUEST_CODE = 17326;
+
     private ImageView imgSplash;
 
     private Animation animationTL;
@@ -104,6 +124,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        checkUpDate();
         startWork();
         imgSplash = (ImageView) findViewById(R.id.imgSplash);
 
@@ -125,16 +146,92 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
         if (userConfirm.equals("Y")) {
             goProgress();
-        }else{
+        } else {
             Intent intent = new Intent(getApplicationContext(), InAppInfoActivity.class);
             startActivityForResult(intent, USER_CONFIRM);
+        }
+    }
+
+    private void checkUpDate() {
+        InstallStateUpdatedListner listner = new InstallStateUpdatedListner() {
+            @Override
+            public void onStateUpdate(InstallState installState) {
+                if (installState.installStatus() == InstallStatus.DOWNLOADED) {
+                    Log.d("InstallDownloded", "InstallStatus sucsses");
+                    notifyUser();
+                }
+            }
+        };
+
+        appUpdateManager = AppUpdateManagerFactory.create(this);
+        appUpdateManager.registerListener(listner);
+
+        Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+        appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo appUpdateInfo) {
+                String data = "packageName :" + appUpdateInfo.packageName() + "," +
+                        "availableVersionCode :" + appUpdateInfo.availableVersionCode() + "," +
+                        "updateAvailability :" + appUpdateInfo.updateAvailability() + "," +
+                        "install :" + appUpdateInfo.installStatus() + ",";
+                Log.e("appUpdateInfo", "" + data);
+                Toast.makeText(SplashActivity.this, "" + data, Toast.LENGTH_LONG).show();
+
+                if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                        && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                    requestUpdate(appUpdateInfo);
+                    Log.d("UpdateAvailable", "update is there ");
+                } else if (appUpdateInfo.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+                    Log.d("Update", "3");
+                    notifyUser();
+                } else {
+                    Toast.makeText(SplashActivity.this, "No Update Available", Toast.LENGTH_SHORT).show();
+                    Log.e("NoUpdateAvailable", "update is not there");
+                }
+
+            }
+        });
+
+    }
+
+    private void requestUpdate(AppUpdateInfo appUpdateInfo) {
+        try {
+            appUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.IMMEDIATE, SplashActivity.this, MY_REQUEST_CODE);
+            onResume();
+        } catch (IntentSender.SendIntentException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == MY_REQUEST_CODE) {
+            switch (requestCode) {
+                case Activity.RESULT_OK:
+                    if (requestCode != RESULT_OK) {
+                        Toast.makeText(this, "RESULT_OK" + resultCode, Toast.LENGTH_LONG).show();
+                        Log.d("RESULT_OK :", "" + resultCode);
+                    }
+                    break;
+                case Activity.RESULT_CANCELED:
+
+                    if (resultCode != RESULT_CANCELED){
+                        Toast.makeText(this, "RESULT_CANCELED" + resultCode, Toast.LENGTH_LONG).show();
+                        Log.d("RESULT_CANCELED :", "" + resultCode);
+                    }
+                    break;
+                case ActivityResult.RESULT_IN_APP_UPDATE_FAILED:
+
+            }
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             if (requestCode == USER_CONFIRM) {
                 boolean returnValue = data.getBooleanExtra(IS_OK, false);
                 if (returnValue) {
@@ -156,16 +253,17 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
             }
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == MY_PERMISSIONS_CALL_PHONE){
+        if (requestCode == MY_PERMISSIONS_CALL_PHONE) {
             goProgress();
         }
     }
 
     @SuppressLint("HardwareIds")
-    private void goProgress(){
+    private void goProgress() {
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
             TelephonyManager mgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
@@ -179,181 +277,186 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
         }
 
-        if(checkPhoneNumber(myNumber)){
+        if (checkPhoneNumber(myNumber)) {
             //handler.sendEmptyMessageDelayed(0,3000);
             String url = getString(R.string.mainUrl);
             url += getString(R.string.getInfo);
             url += "?" + ZZangcoUtility.CHECKUSER_PARAM + "=" + myNumber;
 
-            Log.e("zzangco","testURL=["+ url + "]");
-            httpConnection = new HttpConnection(this, url,HttpConnection.URLTYPE.SEND);
+            Log.e("zzangco", "testURL=[" + url + "]");
+            httpConnection = new HttpConnection(this, url, HttpConnection.URLTYPE.SEND);
             httpConnection.start();
-            Log.e("zzangco","전화번호 있음");
-        }else{
+            Log.e("zzangco", "전화번호 있음");
+        } else {
             // handler.sendEmptyMessageDelayed(0,3000);
-            Log.e("zzangco","phoneNumber ["+myNumber+"]");
-            Log.e("zzangco","로그인 실패함");
+            Log.e("zzangco", "phoneNumber [" + myNumber + "]");
+            Log.e("zzangco", "로그인 실패함");
 
             String url = getString(R.string.mainUrl);
             url += getString(R.string.checkUser);
             url += "?" + ZZangcoUtility.CHECKUSER_PARAM + "=" + myNumber;
             //url = "https://www.daum.net/";
-            Log.e("zzangco","user Check ["+url+"]");
-            httpConnection = new HttpConnection(this, url,HttpConnection.URLTYPE.SEND);
+            Log.e("zzangco", "user Check [" + url + "]");
+            httpConnection = new HttpConnection(this, url, HttpConnection.URLTYPE.SEND);
             httpConnection.start();
 
         }
     }
-    private void permissonCheckFu(){
-        if (ContextCompat.checkSelfPermission(this,Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_PHONE_STATE)) {
+    private void permissonCheckFu() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
-            }else {
-                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_PHONE_STATE},MY_PERMISSIONS_CALL_PHONE);
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_PHONE_STATE)) {
+
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, MY_PERMISSIONS_CALL_PHONE);
             }
         }
 
 
     }
 
-    private  void startWork(){
-        if(!isCheckDB()){
+    private void startWork() {
+        if (!isCheckDB()) {
             copyDB();
         }
     }
 
-    private boolean checkPhoneNumber(String number){
+    private boolean checkPhoneNumber(String number) {
         getDatastore();
         memberInfo.openc();
 
 
-        if(memberInfo.checkPhoneNumber(number)){
+        if (memberInfo.checkPhoneNumber(number)) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
 
         //return true;
     }
-    private boolean updateMemberInfo(MemberVo memberVo){
+
+    private boolean updateMemberInfo(MemberVo memberVo) {
         getDatastore();
         memberInfo.openc();
 
-        if(memberInfo.updateMemberInfo(memberVo)){
+        if (memberInfo.updateMemberInfo(memberVo)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    private MemberInfo getDatastore(){
-        if(null == memberInfo){
+    private MemberInfo getDatastore() {
+        if (null == memberInfo) {
             memberInfo = new MemberInfo(getApplication());
         }
 
         return memberInfo;
     }
 
-    private BoardInfo getBoardDataStore(){
-        if(null == boardInfo){
+    private BoardInfo getBoardDataStore() {
+        if (null == boardInfo) {
             boardInfo = new BoardInfo(getApplication());
         }
 
         return boardInfo;
     }
 
-    private void getCheckDatastore(){
-        if(null == checkinfo){
+    private void getCheckDatastore() {
+        if (null == checkinfo) {
             checkinfo = new CheckInfo(getApplication());
         }
     }
 
-    private boolean addBoard(BoardVo boardVo){
+    private boolean addBoard(BoardVo boardVo) {
         getBoardDataStore();
         boardInfo.openc();
 
-        if(boardInfo.addBoard(boardVo)){
+        if (boardInfo.addBoard(boardVo)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
 
-    private boolean updateBoard(BoardVo boardVo){
+    private boolean updateBoard(BoardVo boardVo) {
         getBoardDataStore();
         boardInfo.openc();
 
-        if(boardInfo.updateBoard(boardVo)){
+        if (boardInfo.updateBoard(boardVo)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
-    private boolean deleteBoard(BoardVo boardVo){
+
+    private boolean deleteBoard(BoardVo boardVo) {
         getBoardDataStore();
         boardInfo.openc();
 
-        if(boardInfo.deleteBoard(boardVo)){
+        if (boardInfo.deleteBoard(boardVo)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
 
-    private boolean addSchedule(ScheduleVo scheduleVo){
+    private boolean addSchedule(ScheduleVo scheduleVo) {
         getScheduleDataStore();
         scheduleInfo.openc();
 
-        if(scheduleInfo.addSchedule(scheduleVo)){
+        if (scheduleInfo.addSchedule(scheduleVo)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
 
-    private boolean updateSchedule(ScheduleVo scheduleVo){
+    private boolean updateSchedule(ScheduleVo scheduleVo) {
         getScheduleDataStore();
         scheduleInfo.openc();
 
-        if(scheduleInfo.updateSchedule(scheduleVo)){
+        if (scheduleInfo.updateSchedule(scheduleVo)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
-    private boolean deleteSchedule(ScheduleVo deleteSchedule){
+
+    private boolean deleteSchedule(ScheduleVo deleteSchedule) {
         getScheduleDataStore();
         scheduleInfo.openc();
 
-        if(scheduleInfo.deleteSchedule(deleteSchedule)){
+        if (scheduleInfo.deleteSchedule(deleteSchedule)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
 
-    private ScheduleInfo getScheduleDataStore(){
-        if(null == scheduleInfo){
+    private ScheduleInfo getScheduleDataStore() {
+        if (null == scheduleInfo) {
             scheduleInfo = new ScheduleInfo(getApplication());
         }
         return scheduleInfo;
     }
-    private boolean isCheckDB(){
+
+    private boolean isCheckDB() {
         String filePath = "/data/data/" + getApplication().getPackageName() + "/databases/" + DataBase.dbName;
         File file = new File(filePath);
 
         return file.exists();
     }
 
-    private void copyDB(){
+    private void copyDB() {
         AssetManager assetManager = getApplication().getAssets();
 
         String folderPath = "/data/data/" + getApplication().getPackageName() + "/databases/";
@@ -365,18 +468,18 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
 
-        Log.e("zzangco","copyDB folderPath = " + filePath);
+        Log.e("zzangco", "copyDB folderPath = " + filePath);
         try {
             InputStream is = assetManager.open(DataBase.dbName);
             BufferedInputStream bis = new BufferedInputStream(is);
 
 
-            if(!folder.exists()){
+            if (!folder.exists()) {
                 folder.mkdirs();
-                Log.e("zzangco","copyDB folder = exists:false ");
+                Log.e("zzangco", "copyDB folder = exists:false ");
             }
 
-            if(file.exists()){
+            if (file.exists()) {
                 file.delete();
                 file.createNewFile();
             }
@@ -387,17 +490,18 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
             int read = -1;
             byte[] buffer = new byte[1024];
 
-            while( (read = bis.read(buffer,0,1024)) != -1 ){
-                bos.write(buffer,0,read);
+            while ((read = bis.read(buffer, 0, 1024)) != -1) {
+                bos.write(buffer, 0, read);
             }
             bos.flush();
 
-            bos.close();;
+            bos.close();
+            ;
             fos.close();
             bis.close();
             is.close();
         } catch (Exception e) {
-            Log.e("zzangco","error = " + e.getMessage());
+            Log.e("zzangco", "error = " + e.getMessage());
         }
     }
 
@@ -406,24 +510,24 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         try {
             JSONObject jo = new JSONObject(result);
 
-            if(jo.getString("result").equals("Y")){
+            if (jo.getString("result").equals("Y")) {
                 String url = getString(R.string.mainUrl);
                 url += getString(R.string.getInfo);
 //                url += "?" + ZZangcoUtility.CHECKUSER_PARAM + "=" + myNumber;
 
-                httpConnection = new HttpConnection(this, url,HttpConnection.URLTYPE.SEND);
+                httpConnection = new HttpConnection(this, url, HttpConnection.URLTYPE.SEND);
                 httpConnection.start();
-            }else if(jo.getString("result").equals("N")){
+            } else if (jo.getString("result").equals("N")) {
                 handler = null;
-                Intent intent = new Intent(getApplicationContext(),PopupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 //startActivity(intent,option.toBundle());
-                intent.putExtra(PopupActivity.TITLE,"SPARC 멤버 체크");
-                intent.putExtra(PopupActivity.CONTENT,"SPARC 멤버로 확인 되지 않습니다. \n SPARC 행정실(02-880-6251)으로 확인 부탁드립니다.");
+                intent.putExtra(PopupActivity.TITLE, "SPARC 멤버 체크");
+                intent.putExtra(PopupActivity.CONTENT, "SPARC 멤버로 확인 되지 않습니다. \n SPARC 행정실(02-880-6251)으로 확인 부탁드립니다.");
                 startActivity(intent);
                 finish();
-            }else{
-                ResultVo resutlVo  = new Gson().fromJson(result,ResultVo.class);
-                MemberReadVo[] array = new Gson().fromJson(resutlVo.getResult(),MemberReadVo[].class);
+            } else {
+                ResultVo resutlVo = new Gson().fromJson(result, ResultVo.class);
+                MemberReadVo[] array = new Gson().fromJson(resutlVo.getResult(), MemberReadVo[].class);
                 List<MemberReadVo> list = Arrays.asList(array);
 
                 Log.e("zzangco", "count:" + list.size());
@@ -435,53 +539,53 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         } catch (Exception e) {
             Log.e("zzangco", "error:" + e.getMessage());
             e.printStackTrace();
-        }finally {
-            if(null != handler) {
+        } finally {
+            if (null != handler) {
                 handler.sendEmptyMessageDelayed(0, 3000);
             }
         }
     }
 
-    private void updateInfo(List<MemberReadVo> list){
-        for(MemberReadVo memberReadVo : list){
+    private void updateInfo(List<MemberReadVo> list) {
+        for (MemberReadVo memberReadVo : list) {
             boolean returnVal = false;
 
-            Log.e("zzangco","memberReadVo id:"+memberReadVo.getId());
-            Log.e("zzangco","memberReadVo DataType:"+memberReadVo.getDataType());
-            Log.e("zzangco","memberReadVo Content:"+memberReadVo.getContent());
+            Log.e("zzangco", "memberReadVo id:" + memberReadVo.getId());
+            Log.e("zzangco", "memberReadVo DataType:" + memberReadVo.getDataType());
+            Log.e("zzangco", "memberReadVo Content:" + memberReadVo.getContent());
 
-            if(memberReadVo.getDataType().equals("00")){ //회원정보
-                MemberVo memberVo = new Gson().fromJson(memberReadVo.getContent(),MemberVo.class);
+            if (memberReadVo.getDataType().equals("00")) { //회원정보
+                MemberVo memberVo = new Gson().fromJson(memberReadVo.getContent(), MemberVo.class);
                 returnVal = updateMemberInfo(memberVo);
-            }else if(memberReadVo.getDataType().equals("01")){//공지사항
-                BoardVo boardVo = new Gson().fromJson(memberReadVo.getContent(),BoardVo.class);
-                if(memberReadVo.getAction().equals("00")){//신규
+            } else if (memberReadVo.getDataType().equals("01")) {//공지사항
+                BoardVo boardVo = new Gson().fromJson(memberReadVo.getContent(), BoardVo.class);
+                if (memberReadVo.getAction().equals("00")) {//신규
                     returnVal = addBoard(boardVo);
-                }else if(memberReadVo.getAction().equals("01")){//수정
+                } else if (memberReadVo.getAction().equals("01")) {//수정
                     returnVal = updateBoard(boardVo);
-                }else if(memberReadVo.getAction().equals("02")){//삭제
+                } else if (memberReadVo.getAction().equals("02")) {//삭제
                     returnVal = deleteBoard(boardVo);
                 }
 
-            }else if(memberReadVo.getDataType().equals("02")){//일정
-                ScheduleVo scheduleVo = new Gson().fromJson(memberReadVo.getContent(),ScheduleVo.class);
+            } else if (memberReadVo.getDataType().equals("02")) {//일정
+                ScheduleVo scheduleVo = new Gson().fromJson(memberReadVo.getContent(), ScheduleVo.class);
 
-                if(memberReadVo.getAction().equals("00")){//신규
+                if (memberReadVo.getAction().equals("00")) {//신규
                     returnVal = addSchedule(scheduleVo);
-                }else if(memberReadVo.getAction().equals("01")){//수정
+                } else if (memberReadVo.getAction().equals("01")) {//수정
                     returnVal = updateSchedule(scheduleVo);
-                }else if(memberReadVo.getAction().equals("02")){//삭제
+                } else if (memberReadVo.getAction().equals("02")) {//삭제
                     returnVal = deleteSchedule(scheduleVo);
                 }
 
             }
 
-            if(returnVal){
+            if (returnVal) {
                 String url = getString(R.string.mainUrl);
                 url += getString(R.string.getInfoOK);
                 url += "?" + ZZangcoUtility.GET_INFO_OK_PARAM + "=" + memberReadVo.getId();
-                Log.e("zzangco","url="+url);
-                httpConnection = new HttpConnection(this, url,HttpConnection.URLTYPE.SEND);
+                Log.e("zzangco", "url=" + url);
+                httpConnection = new HttpConnection(this, url, HttpConnection.URLTYPE.SEND);
                 httpConnection.start();
             }
         }
