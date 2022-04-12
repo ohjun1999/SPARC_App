@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/banners1" />
+                app:srcCompat="@drawable/banners6" />
 
             <ImageView
                 android:id="@+id/imgBanner2"

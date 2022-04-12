@@ -138,7 +138,7 @@
                         android:textSize="@dimen/olc_chart_tx_size" />
 
 
-                    <TableRow
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="26dp"
@@ -149,9 +149,11 @@
 
                         <TextView
                             android:id="@+id/textView123142"
-                            android:layout_width="90dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingBottom="5dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
                             android:text="서영출\n장재진\n홍기남\n김권진\n하상철\n정순백\n박준희\n오정기\n김대인\n박준영"
                             android:textAlignment="center"
                             android:textColor="#353535"
@@ -166,7 +168,7 @@
                             android:text="㈜서은상사 회장\n㈜오리엔트바이오 회장\n진보공업㈜ 대표이사·회장\n성신화학㈜ 대표이사\n㈜파카텍스 대표이사\n위너콤㈜ 대표이사\n아이넷방송 대표이사·회장\n현대하이텍㈜ 대표이사\n㈜대흥소프트밀 대표이사\n군장에너지㈜ 사장"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
-                    </TableRow>
+                    </LinearLayout>
                     <TextView
                         android:id="@+id/textView70231790234"
                         android:layout_width="97dp"
@@ -207,8 +209,8 @@
                         android:textSize="@dimen/olc_chart_tx_size" />
 
 
-                    <TableRow
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="26dp"
                         android:layout_marginBottom="20dp">
@@ -230,8 +232,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingBottom="5dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
                             android:text="회장 조용권\n회장 홍기남\n회장 임행균\n회장 이걸구\n회장 이환무\n회장 이의시\n회장            \n회장 강정용\n회장 황우택\n회장 고인홍\n회장 민경한\n회장 정운기\n회장            \n회장 박영수\n회장 정삼진\n회장 윤병진\n회장 박윤한\n회장 이대복\n회장 안철호\n회장 이봉현\n회장 곽종훈\n회장 조돈엽\n회장 이규산\n회장 김희섭\n회장 백성식\n회장 김지왕\n회장 손준호\n회장 송정섭\n회장 장성원\n회장 이상원\n회장 윤통섭\n회장 임덕정\n회장 표미선\n회장 권기연\n회장 루크강"
-                            android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
 
@@ -242,10 +245,13 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:paddingBottom="5dp"
-                            android:text="총장 전동훈\n총장 이청산\n총장            \n총장 이원철\n총장 이환무\n총장 정운호\n총장 윤석구\n총장 유성호\n총장 이진수\n총장 이한수\n총장 김창홍\n총장 엄오섭\n총장 박진호\n총장 장옥님\n총장 김태균\n총장 임세현\n총장 박근수\n총장 김태환\n총장 민정기\n총장 임덕순\n총장 김득수,최영록\n총장 최복규\n총장 김정현\n총장 김윤년\n총장 김한준\n총장 장영임\n총장 허진영\n총장 민수영,최재범\n총장 최문정,오상범\n총장 심연화,김하균\n총장 김영호\n총장 김태윤\n총장 김재은,전성우\n총장 우재원\n총장 오미희,최봉수"
+                            android:paddingStart="20dp"
+                            android:text="총장 전동훈\n총장 이청산\n총장\n총장 이원철\n총장 이환무\n총장 정운호\n총장 윤석구\n총장 유성호\n총장 이진수\n총장 이한수\n총장 김창홍\n총장 엄오섭\n총장 박진호\n총장 장옥님\n총장 김태균\n총장 임세현\n총장 박근수\n총장 김태환\n총장 민정기\n총장 임덕순\n총장 김득수,최영록\n총장 최복규\n총장 김정현\n총장 김윤년\n총장 김한준\n총장 장영임\n총장 허진영\n총장 민수영,최재범\n총장 최문정,오상범\n총장 심연화,김하균\n총장 김영호\n총장 김태윤\n총장 김재은,전성우\n총장 우재원\n총장 오미희,최봉수"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
-                    </TableRow>
+
+
+                    </LinearLayout>
 
                 </TableLayout>
             </LinearLayout>
@@ -2592,7 +2598,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/banners1" />
+                app:srcCompat="@drawable/banners6" />
 
             <ImageView
                 android:id="@+id/imgBanner2"

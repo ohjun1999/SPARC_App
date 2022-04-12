@@ -17,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
 import com.loysc.zzangco.kirikiri_snu.R;
 
 import java.util.ArrayList;
@@ -37,10 +38,10 @@ public class BoardActivity extends AppCompatActivity {
     private CardView olc_manual;
 
     private ViewFlipper vfSlider;
-    private ImageView imgBanner1,imgBanner2,imgBanner3,imgBanner4,imgBanner5;
+    private ImageView imgBanner1, imgBanner2, imgBanner3, imgBanner4, imgBanner5;
 
-    private Animation slide_out_left,slide_in_right;
-    private Animation slide_in_left,slide_out_right;
+    private Animation slide_out_left, slide_in_right;
+    private Animation slide_in_left, slide_out_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,27 +50,27 @@ public class BoardActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        rcAlarList = (RecyclerView)findViewById(R.id.rcAlarList);
+        rcAlarList = (RecyclerView) findViewById(R.id.rcAlarList);
         rcAlarList.setHasFixedSize(true);
-        adapter = new BoardAdapter(this,items);
+        adapter = new BoardAdapter(this, items);
 
         layoutManager = new LinearLayoutManager(this);
         rcAlarList.setLayoutManager(layoutManager);
         rcAlarList.setAdapter(adapter);
 
-        olc_manual = (CardView)findViewById(R.id.olc_manual);
+        olc_manual = (CardView) findViewById(R.id.olc_manual);
 
-        vfSlider = (ViewFlipper)findViewById(R.id.vfSlider);
-        imgBanner1 = (ImageView)findViewById(R.id.imgBanner1);
-        imgBanner2 = (ImageView)findViewById(R.id.imgBanner2);
-        imgBanner3 = (ImageView)findViewById(R.id.imgBanner3);
-        imgBanner4 = (ImageView)findViewById(R.id.imgBanner4);
-        imgBanner5 = (ImageView)findViewById(R.id.imgBanner5);
+        vfSlider = (ViewFlipper) findViewById(R.id.vfSlider);
+        imgBanner1 = (ImageView) findViewById(R.id.imgBanner1);
+        imgBanner2 = (ImageView) findViewById(R.id.imgBanner2);
+        imgBanner3 = (ImageView) findViewById(R.id.imgBanner3);
+        imgBanner4 = (ImageView) findViewById(R.id.imgBanner4);
+        imgBanner5 = (ImageView) findViewById(R.id.imgBanner5);
 
         olc_manual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),OlcManualActivity.class);
+                Intent intent = new Intent(getApplicationContext(), OlcManualActivity.class);
                 startActivity(intent);
             }
         });
@@ -78,7 +79,7 @@ public class BoardActivity extends AppCompatActivity {
         imgBanner1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.sftc_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
                 startActivity(intent);
             }
         });
@@ -111,11 +112,11 @@ public class BoardActivity extends AppCompatActivity {
             }
         });
 
-        slide_in_left = AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left );
-        slide_out_right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right );
+        slide_in_left = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        slide_out_right = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
 
-        slide_out_left = AnimationUtils.loadAnimation(this,R.anim.ani_translate_l );
-        slide_in_right = AnimationUtils.loadAnimation(this,R.anim.ani_translate_r );
+        slide_out_left = AnimationUtils.loadAnimation(this, R.anim.ani_translate_l);
+        slide_in_right = AnimationUtils.loadAnimation(this, R.anim.ani_translate_r);
 
         vfSlider.setInAnimation(slide_in_right);
         vfSlider.setOutAnimation(slide_out_left);
@@ -139,18 +140,19 @@ public class BoardActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        int positon = data.getIntExtra(DetailInfoActivity.POSITION,0);
+        super.onActivityResult(requestCode, resultCode, data);
+        int positon = data.getIntExtra(DetailInfoActivity.POSITION, 0);
         getDatastore();
         BoardItem item = boardInfo.getBoardItem(items.get(positon).getId());
 
-        items.set(positon,item);
+        items.set(positon, item);
         adapter.notifyItemChanged(positon);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.board,menu);
+        getMenuInflater().inflate(R.menu.board, menu);
 
         return true;
     }
@@ -161,25 +163,25 @@ public class BoardActivity extends AppCompatActivity {
 
         if (id == R.id.action_no_read) {
             noReadView = "T";
-        }else if(id == R.id.action_all_vew) {
+        } else if (id == R.id.action_all_vew) {
             noReadView = "A";
-        }else if(id == R.id.action_read_ok) {
+        } else if (id == R.id.action_read_ok) {
             noReadView = "F";
-        }else if(id == R.id.action_mountain) {
+        } else if (id == R.id.action_mountain) {
             noReadView = "M";
-        }else if(id == R.id.action_cine) {
+        } else if (id == R.id.action_cine) {
             noReadView = "C";
-        }else if(id == R.id.action_opera) {
+        } else if (id == R.id.action_opera) {
             noReadView = "O";
-        }else if(id == R.id.action_journal) {
+        } else if (id == R.id.action_journal) {
             noReadView = "J";
         }
         addItems();
-        Log.e("zzangco","BoardActivity readOK"+ noReadView);
+        Log.e("zzangco", "BoardActivity readOK" + noReadView);
         return super.onOptionsItemSelected(item);
     }
 
-    private void addItems(){
+    private void addItems() {
         items.clear();
         getDatastore();
 
@@ -187,7 +189,7 @@ public class BoardActivity extends AppCompatActivity {
 
         List<BoardItem> list = boardInfo.getBoardList(noReadView);
 
-        for(BoardItem item : list){
+        for (BoardItem item : list) {
             items.add(item);
         }
 
@@ -196,8 +198,8 @@ public class BoardActivity extends AppCompatActivity {
 
     }
 
-    public BoardInfo getDatastore(){
-        if(null == boardInfo){
+    public BoardInfo getDatastore() {
+        if (null == boardInfo) {
             boardInfo = new BoardInfo(getApplication());
         }
 

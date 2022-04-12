@@ -176,7 +176,7 @@ public class MemberListActivity extends AppCompatActivity implements NavigationV
         imgBanner1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.sftc_url)));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ysk_url)));
                 startActivity(intent);
             }
         });

@@ -222,4 +222,5 @@
     <string name="inettv_url">http://www.inettv.tv</string>
     <string name="orient_url">http://www.orient.co.kr/common/main.asp</string>
     <string name="storant_url">http://www.storant.co.kr</string>
+    <string name="ysk_url">http://www.ysk.co.kr</string>
 </resources>
