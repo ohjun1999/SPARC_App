@@ -27,10 +27,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.install.InstallState;
+import com.google.android.play.core.install.InstallStateUpdatedListener;
 import com.google.android.play.core.install.model.ActivityResult;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.InstallStatus;
@@ -124,7 +126,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        checkUpDate();
+        checkUpdate();
         startWork();
         imgSplash = (ImageView) findViewById(R.id.imgSplash);
 
@@ -152,8 +154,8 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         }
     }
 
-    private void checkUpDate() {
-        InstallStateUpdatedListner listner = new InstallStateUpdatedListner() {
+    private void checkUpdate() {
+        InstallStateUpdatedListener listner = new InstallStateUpdatedListener() {
             @Override
             public void onStateUpdate(InstallState installState) {
                 if (installState.installStatus() == InstallStatus.DOWNLOADED) {
@@ -197,7 +199,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
     private void requestUpdate(AppUpdateInfo appUpdateInfo) {
         try {
             appUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.IMMEDIATE, SplashActivity.this, MY_REQUEST_CODE);
-            onResume();
+            resume();
         } catch (IntentSender.SendIntentException e) {
             e.printStackTrace();
         }
@@ -217,7 +219,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
                     break;
                 case Activity.RESULT_CANCELED:
 
-                    if (resultCode != RESULT_CANCELED){
+                    if (resultCode != RESULT_CANCELED) {
                         Toast.makeText(this, "RESULT_CANCELED" + resultCode, Toast.LENGTH_LONG).show();
                         Log.d("RESULT_CANCELED :", "" + resultCode);
                     }
@@ -251,6 +253,45 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            appUpdateManager.unregisterListener((InstallStateUpdatedListener) this);
+        } catch (RuntimeException e) {
+
+
+        }
+    }
+
+    private void notifyUser() {
+
+        Snackbar snackbar =
+                Snackbar.make(findViewById(R.id.root),
+                        "An update has just been downloaded.",
+                        Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("RESTART", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                appUpdateManager.completeUpdate();
+            }
+        });
+        snackbar.setActionTextColor(
+                getResources().getColor(R.color.colorAccent));
+        snackbar.show();
+    }
+
+    private void resume() {
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo appUpdateInfo) {
+                if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
+                    notifyUser();
+                }
+            }
+        });
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_PERMISSIONS_CALL_PHONE) {
@@ -264,10 +305,10 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
             TelephonyManager mgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             if (mgr != null) {
-                myNumber = mgr.getLine1Number();
-                myNumber = myNumber.replace("+82", "0");
-                myNumber = myNumber.replace("-", "");
-                myNumber = myNumber.trim();
+//                myNumber = mgr.getLine1Number();
+//                myNumber = myNumber.replace("+82", "0");
+//                myNumber = myNumber.replace("-", "");
+//                myNumber = myNumber.trim();
             }
 
 

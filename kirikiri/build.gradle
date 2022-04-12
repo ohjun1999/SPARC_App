@@ -7,8 +7,8 @@ android {
         applicationId "com.loysc.zzangco.kirikiri_snu"
         minSdkVersion 21
         targetSdkVersion 32
-        versionCode 32
-        versionName "2.2"
+        versionCode 40
+        versionName "2.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
