@@ -68,6 +68,7 @@ import com.loysc.zzangco.kirikiri_snu.vo.MemberVo;
 import com.loysc.zzangco.kirikiri_snu.vo.ResultVo;
 import com.loysc.zzangco.kirikiri_snu.vo.ScheduleVo;
 
+import static com.google.android.play.core.install.model.AppUpdateType.IMMEDIATE;
 import static com.google.android.play.core.install.model.UpdateAvailability.UPDATE_AVAILABLE;
 import static com.loysc.zzangco.kirikiri_snu.activity.MainActivity.USER_PHONE_NUM;
 
@@ -98,7 +99,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
 
     String userConfirm = null;
 
-    private static int MY_PERMISSIONS_CALL_PHONE = 0;
+    private static final int MY_PERMISSIONS_CALL_PHONE = 0;
     public static int USER_CONFIRM = 7;
     public static String IS_OK = "isOk";
 
@@ -128,7 +129,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         setContentView(R.layout.activity_splash);
         checkUpdate();
         startWork();
-        imgSplash = (ImageView) findViewById(R.id.imgSplash);
+        imgSplash = findViewById(R.id.imgSplash);
 
         animationTL = AnimationUtils.loadAnimation(this, R.anim.ani_translate_r);
 
@@ -166,21 +167,21 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         };
 
         appUpdateManager = AppUpdateManagerFactory.create(this);
-        appUpdateManager.registerListener(listner);
+//        appUpdateManager.registerListener(listner);
 
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
-        appUpdateInfoTask.addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            @Override
+        appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
+/*            @Override
             public void onSuccess(AppUpdateInfo appUpdateInfo) {
                 String data = "packageName :" + appUpdateInfo.packageName() + "," +
                         "availableVersionCode :" + appUpdateInfo.availableVersionCode() + "," +
                         "updateAvailability :" + appUpdateInfo.updateAvailability() + "," +
                         "install :" + appUpdateInfo.installStatus() + ",";
                 Log.e("appUpdateInfo", "" + data);
-                Toast.makeText(SplashActivity.this, "" + data, Toast.LENGTH_LONG).show();
+                Toast.makeText(SplashActivity.this, "" + data, Toast.LENGTH_LONG).show();*/
 
                 if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                        && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                        && appUpdateInfo.isUpdateTypeAllowed(IMMEDIATE)) {
                     requestUpdate(appUpdateInfo);
                     Log.d("UpdateAvailable", "update is there ");
                 } else if (appUpdateInfo.updateAvailability() == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
@@ -188,18 +189,18 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
                     notifyUser();
                 } else {
                     Toast.makeText(SplashActivity.this, "No Update Available", Toast.LENGTH_SHORT).show();
-                    Log.e("NoUpdateAvailable", "update is not there");
+                    Log.e("현재 업데이트가 없습니다.", "update is not there");
                 }
 
-            }
+//            }
         });
 
     }
 
     private void requestUpdate(AppUpdateInfo appUpdateInfo) {
         try {
-            appUpdateManager.startUpdateFlowForResult(appUpdateInfo, AppUpdateType.IMMEDIATE, SplashActivity.this, MY_REQUEST_CODE);
-            resume();
+            appUpdateManager.startUpdateFlowForResult(appUpdateInfo, IMMEDIATE, this, MY_REQUEST_CODE);
+            onResume();
         } catch (IntentSender.SendIntentException e) {
             e.printStackTrace();
         }
@@ -280,16 +281,49 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         snackbar.show();
     }
 
-    private void resume() {
-        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
-            @Override
-            public void onSuccess(AppUpdateInfo appUpdateInfo) {
-                if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        appUpdateManager
+                .getAppUpdateInfo()
+                .addOnSuccessListener(
+                        appUpdateInfo -> {
+
+                            if (appUpdateInfo.updateAvailability()
+                                    == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+                                // If an in-app update is already running, resume the update.
+                                try {
+                                    appUpdateManager.startUpdateFlowForResult(
+                                            appUpdateInfo,
+                                            IMMEDIATE,
+                                            this,
+                                            MY_REQUEST_CODE);
+                                } catch (IntentSender.SendIntentException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+    }
+   /* private void resume() {
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(appUpdateInfo -> {
+           *//* @Override
+            public void onSuccess(AppUpdateInfo appUpdateInfo) {*//*
+                if (appUpdateInfo.updateAvailability()*//*appUpdateInfo.installStatus()*//* == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {
+                    // If an in-app update is already running, resume the update.
+                    appUpdateManager.startUpdateFlowForResult(
+                            appUpdateInfo,
+                            IMMEDIATE,
+                            this,
+                            MY_REQUEST_CODE);
+                }
+        });
+            *//* == InstallStatus.DOWNLOADED) {
                     notifyUser();
                 }
-            }
-        });
-    }
+//            }
+        });*//*
+    }*/
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -364,11 +398,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         memberInfo.openc();
 
 
-        if (memberInfo.checkPhoneNumber(number)) {
-            return true;
-        } else {
-            return false;
-        }
+        return memberInfo.checkPhoneNumber(number);
 
 
         //return true;
@@ -378,11 +408,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getDatastore();
         memberInfo.openc();
 
-        if (memberInfo.updateMemberInfo(memberVo)) {
-            return true;
-        } else {
-            return false;
-        }
+        return memberInfo.updateMemberInfo(memberVo);
     }
 
     private MemberInfo getDatastore() {
@@ -411,11 +437,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getBoardDataStore();
         boardInfo.openc();
 
-        if (boardInfo.addBoard(boardVo)) {
-            return true;
-        } else {
-            return false;
-        }
+        return boardInfo.addBoard(boardVo);
 
     }
 
@@ -423,11 +445,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getBoardDataStore();
         boardInfo.openc();
 
-        if (boardInfo.updateBoard(boardVo)) {
-            return true;
-        } else {
-            return false;
-        }
+        return boardInfo.updateBoard(boardVo);
 
     }
 
@@ -435,11 +453,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getBoardDataStore();
         boardInfo.openc();
 
-        if (boardInfo.deleteBoard(boardVo)) {
-            return true;
-        } else {
-            return false;
-        }
+        return boardInfo.deleteBoard(boardVo);
 
     }
 
@@ -447,11 +461,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getScheduleDataStore();
         scheduleInfo.openc();
 
-        if (scheduleInfo.addSchedule(scheduleVo)) {
-            return true;
-        } else {
-            return false;
-        }
+        return scheduleInfo.addSchedule(scheduleVo);
 
     }
 
@@ -459,11 +469,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getScheduleDataStore();
         scheduleInfo.openc();
 
-        if (scheduleInfo.updateSchedule(scheduleVo)) {
-            return true;
-        } else {
-            return false;
-        }
+        return scheduleInfo.updateSchedule(scheduleVo);
 
     }
 
@@ -471,11 +477,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         getScheduleDataStore();
         scheduleInfo.openc();
 
-        if (scheduleInfo.deleteSchedule(deleteSchedule)) {
-            return true;
-        } else {
-            return false;
-        }
+        return scheduleInfo.deleteSchedule(deleteSchedule);
 
     }
 
@@ -533,7 +535,6 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
             bos.flush();
 
             bos.close();
-            ;
             fos.close();
             bis.close();
             is.close();

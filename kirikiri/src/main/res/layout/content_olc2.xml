@@ -94,7 +94,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="(주) 한국모터트레이닝"
+                            android:text="(주) 한국모터트레이딩(야마하모터)"
                             android:textColor="#a0a0a0"
                             android:textSize="@dimen/olc_chart_tx_size" />
                     </TableRow>
@@ -573,7 +573,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="1sp"
                             android:paddingBottom="3dp"
-                            android:text="장성원 회장  김동원 회장\n정영숙 회장  권기연 회장"
+                            android:text="장성원 회장\n김동원 회장\n정영숙 회장\n권기연 회장\n김광석 회장"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
@@ -672,7 +672,7 @@
                             android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:paddingBottom="3dp"
-                            android:text="빅문구 전무이사"
+                            android:text="박문구 전무이사"
                             android:textAlignment="center"
                             android:textColor="#353535"
                             android:textSize="@dimen/olc_chart_tx_size" />
