@@ -167,18 +167,10 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
         };
 
         appUpdateManager = AppUpdateManagerFactory.create(this);
-//        appUpdateManager.registerListener(listner);
+        appUpdateManager.registerListener(listner);
 
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
-/*            @Override
-            public void onSuccess(AppUpdateInfo appUpdateInfo) {
-                String data = "packageName :" + appUpdateInfo.packageName() + "," +
-                        "availableVersionCode :" + appUpdateInfo.availableVersionCode() + "," +
-                        "updateAvailability :" + appUpdateInfo.updateAvailability() + "," +
-                        "install :" + appUpdateInfo.installStatus() + ",";
-                Log.e("appUpdateInfo", "" + data);
-                Toast.makeText(SplashActivity.this, "" + data, Toast.LENGTH_LONG).show();*/
 
                 if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                         && appUpdateInfo.isUpdateTypeAllowed(IMMEDIATE)) {
@@ -210,26 +202,7 @@ public class SplashActivity extends AppCompatActivity implements HttpConnectionT
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == MY_REQUEST_CODE) {
-            switch (requestCode) {
-                case Activity.RESULT_OK:
-                    if (requestCode != RESULT_OK) {
-                        Toast.makeText(this, "RESULT_OK" + resultCode, Toast.LENGTH_LONG).show();
-                        Log.d("RESULT_OK :", "" + resultCode);
-                    }
-                    break;
-                case Activity.RESULT_CANCELED:
-
-                    if (resultCode != RESULT_CANCELED) {
-                        Toast.makeText(this, "RESULT_CANCELED" + resultCode, Toast.LENGTH_LONG).show();
-                        Log.d("RESULT_CANCELED :", "" + resultCode);
-                    }
-                    break;
-                case ActivityResult.RESULT_IN_APP_UPDATE_FAILED:
-
-            }
-        }
-
+       
         if (resultCode == RESULT_OK) {
             if (requestCode == USER_CONFIRM) {
                 boolean returnValue = data.getBooleanExtra(IS_OK, false);

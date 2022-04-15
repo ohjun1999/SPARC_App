@@ -7,6 +7,7 @@
     android:background="#292A86"
     tools:context="com.loysc.zzangco.kirikiri_snu.activity.SplashActivity">
 
+
     <LinearLayout
         android:id="@+id/root"
         android:layout_width="match_parent"
